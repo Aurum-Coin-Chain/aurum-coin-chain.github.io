@@ -161,5 +161,31 @@
   <!-- Die kommen jetzt hier – du kannst sie einfach aus der vorherigen Version einfügen -->
 
   <footer>
-    &copy; 2025 AURUM. Born as a meme. Backed by value. Secured by Bitco
+    &copy; 2025 AURUM. Born as a meme. Backed by value. Secured by Bitcoin.
+  </footer>
+
+  <!-- ✅ BTC Reserve Script + Theme Toggle -->
+  <script>
+    const address = 'bc1qzdtst5k56qkcxckgd7dn4s6s2y2v4ac09la4rt';
+    const apiURL = `https://blockstream.info/api/address/${address}`;
+    async function updateBTCReserve() {
+      const el = document.getElementById('btcReserve');
+      try {
+        const res = await fetch(apiURL);
+        const data = await res.json();
+        const sats = data.chain_stats.funded_txo_sum - data.chain_stats.spent_txo_sum;
+        const btc = sats / 100_000_000;
+        el.innerText = `🟡 BTC Reserve: ${btc.toFixed(4)} BTC`;
+      } catch (error) {
+        el.innerText = '⚠️ BTC Reserve: Error loading';
+      }
+    }
+    updateBTCReserve();
+    setInterval(updateBTCReserve, 60000);
+    function toggleTheme() {
+      document.body.classList.toggle('light');
+    }
+  </script>
+</body>
+</html>
 
