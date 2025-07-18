@@ -13,31 +13,26 @@
       padding: 40px 20px;
       margin: 0;
     }
-
     img {
       width: 150px;
       margin-bottom: 20px;
     }
-
     h1 {
       font-size: 2rem;
       margin: 10px 0;
     }
-
     h2 {
       font-size: 1.1rem;
       font-weight: normal;
       color: #999;
       margin-bottom: 30px;
     }
-
     #btcReserve {
       font-size: 1.2rem;
       font-weight: bold;
       color: #ffcc00;
       margin-bottom: 40px;
     }
-
     .section {
       text-align: left;
       max-width: 800px;
@@ -45,22 +40,18 @@
       font-size: 0.95rem;
       line-height: 1.6;
     }
-
     .section h3 {
       color: #ffcc00;
       margin-top: 30px;
     }
-
-    .section ul {
+    .section ul, .section ol {
       padding-left: 20px;
     }
-
     footer {
       font-size: 0.85rem;
       color: #666;
       margin-top: 60px;
     }
-
     @media (max-width: 600px) {
       h1 { font-size: 1.6rem; }
       h2 { font-size: 1rem; }
@@ -152,7 +143,13 @@
       <li><strong>The Reserve:</strong><br> BTC is locked forever and publicly viewable. AU has a real BTC-backed floor – but no upper limit.</li>
       <li><strong>Redemption:</strong><br> AU can be redeemed for aBTC (wrapped BTC inside the AURUM system) with a 21% penalty. Redeemed AU is burned.</li>
       <li><strong>AURUM Chain:</strong><br> A future blockchain will distribute AU via staking. Daily emission: 450 AU. Halving aligned with Bitcoin.</li>
-      <li><strong>Tokenomics:</strong><br> Total Supply: 21 million AU<br> Public Presale only in USDC<br> No team allocation or insider deals<br> BTC reserve grows with each sale<br> Deflation via AU burns during transfers</li>
+      <li><strong>Tokenomics:</strong><br>
+        Total Supply: 21 million AU<br>
+        Public Presale only in USDC<br>
+        No team allocation or insider deals<br>
+        BTC reserve grows with each sale<br>
+        Deflation via AU burns during transfers
+      </li>
       <li><strong>Proof of Value:</strong><br> Live BTC reserve display. Immutable and transparent for all.</li>
       <li><strong>Vision:</strong><br> AURUM acts before institutions absorb all available BTC. It’s a long-term system to secure digital scarcity.</li>
       <li><strong>Open Source:</strong><br> The code will be public. No central control. The community shapes the future.</li>
@@ -183,9 +180,10 @@
     }
 
     updateBTCReserve();
-    setInterval(updateBTCReserve, 60000); // update every 60 seconds
+    setInterval(updateBTCReserve, 60000);
   </script>
 
 </body>
 </html>
+
 
