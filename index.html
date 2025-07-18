@@ -38,8 +38,8 @@
       color: var(--highlight);
     }
     header .logo img {
-      width: 40px;
-      height: 40px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
       background-color: black;
     }
@@ -94,6 +94,13 @@
       color: #999;
       font-size: 14px;
     }
+    .inline-logo {
+      width: 20px;
+      height: 20px;
+      vertical-align: middle;
+      border-radius: 50%;
+      background-color: black;
+    }
   </style>
 </head>
 <body>
@@ -111,12 +118,12 @@
     <a href="#whitepaper">Whitepaper</a>
     <a href="#launchpad">Ethereum Launch</a>
     <a href="#vision">Blockchain Vision</a>
-    <a href="#satoshi">Satoshi’s Aurum</a>
+    <a href="#satoshi">Satoshi’s <img src='aurum_logo.png.PNG' class='inline-logo' alt='AU' /></a>
     <a href="#faq">FAQ</a>
   </nav>
 
   <div class="section" id="value">
-    <h3><img src="aurum_logo.png.PNG" alt="Logo" width="20"> Proof of Value</h3>
+    <h3><img src="aurum_logo.png.PNG" alt="Logo" width="24" style="vertical-align: middle; border-radius: 50%; background-color: black;" /> Proof of Value</h3>
     <div class="btc-reserve">
       <img src="btc_logo.png" alt="BTC"> BTC Reserve: <span id="btcReserve">Loading...</span>
     </div>
@@ -124,33 +131,33 @@
 
   <div class="section" id="tokenomics">
     <h3>📊 AURUM Tokenomics</h3>
-    <!-- Dein Tokenomics-HTML hier -->
+    <!-- Tokenomics-Text hier einfügen -->
   </div>
 
   <div class="section" id="whitepaper">
     <h3>📄 AURUM Whitepaper</h3>
-    <!-- Dein Whitepaper-HTML hier -->
+    <!-- Whitepaper-Text hier einfügen -->
   </div>
 
   <div class="section" id="launchpad">
     <h3>🚀 Ethereum Launchpad</h3>
-    <!-- Übersetzter Launchpad-Text hier -->
+    <!-- Launchpad-Text hier einfügen -->
   </div>
 
   <div class="section" id="vision">
     <h3>🔷 Blockchain Vision</h3>
-    <!-- Übersetzter Vision-Text hier -->
+    <!-- Vision-Text hier einfügen -->
   </div>
 
   <div class="section" id="satoshi">
-    <h3>💼 Satoshi’s Aurum</h3>
-    <p>Wallet Address: <code>0x2E13705BC3591BB67ef7a4c27427dbDFE4F7597c</code></p>
+    <h3>Satoshi’s <img src="aurum_logo.png.PNG" class="inline-logo" alt="AU" /></h3>
+    <p><code>0x2E13705BC3591BB67ef7a4c27427dbDFE4F7597c</code></p>
     <p>Live ETH Balance: <span id="ethBalance">Loading...</span></p>
   </div>
 
   <div class="section" id="faq">
     <h3>❓ FAQ</h3>
-    <!-- Fragen & Antworten hier -->
+    <!-- Fragen & Antworten -->
   </div>
 
   <footer>
@@ -161,16 +168,14 @@
     function toggleTheme() {
       const body = document.body;
       const button = document.querySelector('.theme-toggle');
-      const isDark = body.style.backgroundColor === 'var(--background-dark)' || !body.classList.contains('light');
-      if (isDark) {
+      const isLight = body.classList.toggle('light');
+      if (isLight) {
         body.style.backgroundColor = 'var(--background-light)';
         body.style.color = 'var(--text-light)';
-        body.classList.add('light');
         button.textContent = 'Dark Mode';
       } else {
         body.style.backgroundColor = 'var(--background-dark)';
         body.style.color = 'var(--text-dark)';
-        body.classList.remove('light');
         button.textContent = 'Light Mode';
       }
     }
@@ -207,6 +212,4 @@
   </script>
 </body>
 </html>
-
-
 
