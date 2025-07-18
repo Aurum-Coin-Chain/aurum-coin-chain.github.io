@@ -4,19 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AURUM – Secured by Bitcoin</title>
-  <link rel="icon" href="aurum_logo.png" type="image/png" />
+  <link rel="icon" href="aurum_logo.png.PNG" type="image/png" />
   <meta name="description" content="AURUM is a Bitcoin-backed token with real value, transparency, and no upper limit. Built for digital scarcity." />
   <meta name="keywords" content="AURUM, Bitcoin, crypto, token, Ethereum, blockchain, BTC reserve, deflationary" />
   <meta name="author" content="AURUM Team" />
   <meta property="og:title" content="AURUM – Secured by Bitcoin" />
   <meta property="og:description" content="A deflationary Bitcoin-backed token with a real reserve. It has a floor – but no top." />
-  <meta property="og:image" content="aurum_logo.png" />
+  <meta property="og:image" content="aurum_logo.png.PNG" />
   <meta property="og:url" content="https://aurum-coin-chain.github.io/" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="AURUM – Secured by Bitcoin" />
   <meta name="twitter:description" content="Backed by real BTC. Transparent. No promises – just value." />
-  <meta name="twitter:image" content="aurum_logo.png" />
+  <meta name="twitter:image" content="aurum_logo.png.PNG" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     html { scroll-behavior: smooth; }
@@ -35,14 +35,23 @@
       justify-content: center; align-items: center;
       flex-direction: column;
     }
-    #preloader img { width: 100px; height: 100px; margin-bottom: 20px; }
+    #preloader img { width: 100px; height: 100px; margin-bottom: 20px; animation: pulse 2s infinite; }
     #preloader span { color: var(--accent); font-size: 1rem; }
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.8; }
+      100% { transform: scale(1); opacity: 1; }
+    }
     header {
       text-align: center; padding: 60px 20px 30px;
       background: linear-gradient(to bottom, var(--bg), var(--card)); position: relative;
     }
-    header h1 { font-size: 2.5rem; color: var(--accent); margin-top: 20px; }
-    header h2 { font-size: 1.1rem; color: #aaa; }
+    header h1 { font-size: 2.5rem; color: var(--accent); margin-top: 20px; animation: fadeIn 1.2s ease-in; }
+    header h2 { font-size: 1.1rem; color: #aaa; animation: fadeIn 2s ease-in; }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
     .theme-toggle {
       position: absolute; top: 20px; right: 20px; background: var(--card);
       border: 1px solid #333; color: var(--fg); padding: 6px 12px;
@@ -65,12 +74,25 @@
     section {
       background-color: var(--card); border-radius: 16px; padding: 40px;
       margin-bottom: 40px; box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      animation: fadeIn 1s ease-in;
     }
     section h3 {
       color: var(--accent); font-size: 1.6rem; margin-bottom: 20px;
     }
     section ul, section ol { padding-left: 20px; }
     section li { margin-bottom: 10px; }
+    .newsletter {
+      background: var(--card); border: 2px dashed var(--accent); border-radius: 12px;
+      padding: 30px; text-align: center;
+    }
+    .newsletter input[type=email] {
+      padding: 10px; width: 250px; border: none; border-radius: 6px;
+      margin-right: 10px; font-size: 1rem;
+    }
+    .newsletter button {
+      padding: 10px 20px; background: var(--accent); border: none;
+      font-weight: bold; border-radius: 6px; cursor: pointer;
+    }
     footer {
       text-align: center; padding: 30px; font-size: 0.9rem;
       color: #666; background-color: #0a0a0a;
@@ -78,6 +100,8 @@
     .faq h4 {
       margin-top: 20px; color: var(--fg); font-weight: 600;
     }
+    .roadmap-item { margin-bottom: 20px; }
+    .roadmap-item h4 { margin-bottom: 5px; color: var(--accent); }
     @media (max-width: 600px) {
       header h1 { font-size: 2rem; }
       section { padding: 20px; }
@@ -86,14 +110,14 @@
 </head>
 <body>
   <div id="preloader">
-    <img src="aurum_logo.png" alt="Loading AURUM Logo">
+    <img src="aurum_logo.png.PNG" alt="Loading AURUM Logo">
     <span>Loading AURUM…</span>
   </div>
 
   <header>
     <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">🌙 Dark Mode</button>
     <div style="display: flex; justify-content: center; margin-top: 40px;">
-      <img src="aurum_logo.png" alt="AURUM Coin Logo" style="width: 120px; height: 120px;" />
+      <img src="aurum_logo.png.PNG" alt="AURUM Coin Logo" style="width: 120px; height: 120px;" />
     </div>
     <h1>AURUM</h1>
     <h2>Secured by Bitcoin. It has a floor – but no top.</h2>
@@ -105,6 +129,8 @@
     <a href="#ethereum">🚀 Ethereum Launch</a>
     <a href="#vision">🔷 Blockchain Vision</a>
     <a href="#faq">❓ FAQ</a>
+    <a href="#roadmap">🗺️ Roadmap</a>
+    <a href="#newsletter">📬 Newsletter</a>
   </nav>
 
   <div class="btc-reserve">
@@ -113,7 +139,36 @@
   </div>
 
   <div class="container">
-    <!-- [ALLE BISHERIGEN SECTIONS BLEIBEN UNVERÄNDERT] -->
+    <!-- Alle Sections wie Tokenomics, Whitepaper, Ethereum, Vision hier -->
+
+    <section id="roadmap">
+      <h3>🗺️ Roadmap</h3>
+      <div class="roadmap-item">
+        <h4>Phase 1 – Ethereum Launch</h4>
+        <p>Public sale of AU tokens for USDC. Most funds go into BTC reserve. ETH-based distribution begins.</p>
+      </div>
+      <div class="roadmap-item">
+        <h4>Phase 2 – Staking & Proof of Value</h4>
+        <p>Staking system on future AURUM chain. Transparent BTC-backed model validated on-chain.</p>
+      </div>
+      <div class="roadmap-item">
+        <h4>Phase 3 – AURUM Blockchain</h4>
+        <p>Launch of native chain with community governance. AU earned via staking. No central control.</p>
+      </div>
+      <div class="roadmap-item">
+        <h4>Ongoing – Burns, Merchandise & Ecosystem</h4>
+        <p>Deflation via burns, quality merchandise actions, BTC reserve growth and optional utility expansion.</p>
+      </div>
+    </section>
+
+    <section id="newsletter">
+      <h3>📬 Stay in the Loop</h3>
+      <p>Enter your email below to be notified about updates, launches and staking opportunities.</p>
+      <form class="newsletter" onsubmit="event.preventDefault(); alert('Thanks! We will keep you updated.');">
+        <input type="email" placeholder="you@example.com" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </section>
 
     <section id="faq" class="faq">
       <h3>❓ Frequently Asked Questions (FAQ)</h3>
@@ -133,7 +188,6 @@
   </footer>
 
   <script>
-    // BTC Reserve updater
     const address = 'bc1qzdtst5k56qkcxckgd7dn4s6s2y2v4ac09la4rt';
     const apiURL = `https://blockstream.info/api/address/${address}`;
     async function updateBTCReserve() {
@@ -151,7 +205,6 @@
     updateBTCReserve();
     setInterval(updateBTCReserve, 60000);
 
-    // Theme toggle with label update
     function toggleTheme() {
       const body = document.body;
       const btn = document.getElementById('themeToggle');
@@ -159,7 +212,6 @@
       btn.textContent = body.classList.contains('light') ? '☀️ Light Mode' : '🌙 Dark Mode';
     }
 
-    // Preloader removal
     window.addEventListener('load', () => {
       const preloader = document.getElementById('preloader');
       if (preloader) preloader.style.display = 'none';
@@ -169,8 +221,5 @@
 </body>
 </html>
 
-
-</body>
-</html>
 
 
