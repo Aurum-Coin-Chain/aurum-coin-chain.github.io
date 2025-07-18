@@ -134,30 +134,48 @@
 
   <section id="tokenomics">
     <h2>📊 AURUM Tokenomics</h2>
-    <!-- Tokenomics-Text hier einfügen -->
+    <p>1. Total Supply: 21 million AU</p>
+    <ul>
+      <li>1 million AU permanently locked for Satoshi Nakamoto</li>
+      <li>20 million AU actively circulating or allocated</li>
+    </ul>
+    <p>2. Halving Distribution</p>
+    <ul>
+      <li>Daily reward: 450 AU</li>
+      <li>Halving every 4 years</li>
+    </ul>
+    <p>3. Presale & Initial Allocation</p>
+    <ul>
+      <li>USDC on Ethereum only</li>
+      <li>Most funds go into BTC Reserve</li>
+    </ul>
   </section>
 
   <section id="whitepaper">
     <h2>📄 AURUM Whitepaper</h2>
-    <!-- Whitepaper-Text hier einfügen -->
+    <ol>
+      <li><strong>Introduction:</strong> AURUM is a Bitcoin-secured token on Ethereum evolving into its own blockchain.</li>
+      <li><strong>Philosophy:</strong> Transparent and irreversible, secured by a public BTC reserve.</li>
+      <li><strong>Redemption:</strong> AU redeemable for BTC with 21% penalty. Burned AU increases reserve.</li>
+    </ol>
   </section>
 
   <section id="launchpad">
     <h2>🚀 AURUM – Ethereum Launchpad</h2>
-    <!-- Launchpad-Text hier einfügen -->
+    <p>AURUM begins with a presale on Ethereum. Funds are converted to BTC and locked. The reserve is visible and immutable. One million AU are locked for Satoshi as tribute.</p>
   </section>
 
   <section id="vision">
     <h2>🔷 Blockchain & Vision</h2>
-    <!-- Vision-Text hier einfügen -->
+    <p>In the second phase, AURUM becomes independent. A lightweight, decentralized blockchain enables anyone to run nodes. Like Bitcoin’s early days – fair, open, and secure.</p>
   </section>
 
   <section id="faq">
     <h2>❓ FAQ</h2>
     <ul>
-      <li><strong>Is AURUM a financial product?</strong><br> No. AURUM is not a financial service and makes no return guarantees.</li>
-      <li><strong>How is the BTC reserve verified?</strong><br> It is live and visible via public blockchain explorers.</li>
-      <li><strong>Can AU be redeemed for BTC?</strong><br> Yes – on the AURUM chain, with a 21% penalty. Burned AU strengthens the reserve.</li>
+      <li><strong>Is AURUM a financial product?</strong> No.</li>
+      <li><strong>How is the BTC reserve verified?</strong> Publicly via explorer.</li>
+      <li><strong>Can I redeem AU for BTC?</strong> Yes, with 21% penalty on the AURUM chain.</li>
     </ul>
   </section>
 
@@ -166,7 +184,6 @@
   </footer>
 
   <script>
-    // BTC Reserve Live Fetch
     const btcAddress = 'bc1qzdtst5k56qkcxckgd7dn4s6s2y2v4ac09la4rt';
     const btcApi = `https://blockstream.info/api/address/${btcAddress}`;
     async function loadBTC() {
@@ -181,13 +198,22 @@
       }
     }
 
-    // ETH Wallet AU Balance (Static for now – can later connect via Etherscan API)
-    const ethBalance = 1000000; // Example static AU balance
-    document.getElementById("ethBalance").innerText = ethBalance.toLocaleString() + " AU";
+    const etherscanApi = `https://api.etherscan.io/api?module=account&action=tokenbalance&contractaddress=0xTokenContractAddress&address=0x2E13705BC3591BB67ef7a4c27427dbDFE4F7597c&tag=latest&apikey=YourApiKeyToken`;
+    async function loadETHBalance() {
+      try {
+        const res = await fetch(etherscanApi);
+        const data = await res.json();
+        const balance = Number(data.result) / 1e18;
+        document.getElementById("ethBalance").innerText = balance.toFixed(2) + " AU";
+      } catch (e) {
+        document.getElementById("ethBalance").innerText = "⚠️ Unable to load";
+      }
+    }
 
     loadBTC();
+    // Uncomment this if you have a real API key and token contract address:
+    // loadETHBalance();
     setInterval(loadBTC, 60000);
   </script>
 </body>
 </html>
-
