@@ -35,22 +35,23 @@
       font-size: 1.2rem;
       font-weight: bold;
       color: #ffcc00;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
     }
 
-    a.button {
-      display: inline-block;
-      background: #ffcc00;
-      color: #000;
-      padding: 12px 24px;
-      text-decoration: none;
-      border-radius: 6px;
-      margin: 10px;
-      font-weight: bold;
+    .pdf-links {
+      margin-top: 20px;
+      font-size: 1rem;
     }
 
-    a.button:hover {
-      background: #ffd633;
+    .pdf-links a {
+      color: #ffcc00;
+      text-decoration: underline;
+      display: block;
+      margin: 8px 0;
+    }
+
+    .pdf-links a:hover {
+      color: #ffd633;
     }
 
     footer {
@@ -68,15 +69,17 @@
 </head>
 <body>
 
-  <img src="AURUM_logo_512x512.png" alt="AURUM Logo" />
+  <img src="AURUM_logo_512x512.png" alt="AURUM Logo ohne Hintergrund" />
 
   <h1>🟡 AURUM is secured by Bitcoin.</h1>
   <h2>🔓 It has a floor – but no top.</h2>
 
   <div id="btcReserve">Loading BTC Reserve...</div>
 
-  <a href="AURUM_Whitepaper.pdf" class="button" target="_blank">📄 Whitepaper</a>
-  <a href="AURUM_Tokenomics_.pdf" class="button" target="_blank">📊 Tokenomics</a>
+  <div class="pdf-links">
+    <a href="AURUM_Tokenomics_.pdf" target="_blank">📊 Read AURUM Tokenomics</a>
+    <a href="AURUM_Whitepaper.pdf" target="_blank">📄 Read the Whitepaper</a>
+  </div>
 
   <footer>
     &copy; 2025 AURUM. Powered by Bitcoin scarcity.
@@ -107,3 +110,4 @@
 
 </body>
 </html>
+
