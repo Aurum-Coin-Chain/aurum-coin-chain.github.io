@@ -4,222 +4,196 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AURUM – Secured by Bitcoin</title>
-  <link rel="icon" href="aurum_logo.png.PNG" type="image/png" />
-  <meta name="description" content="AURUM is a Bitcoin-backed token with real value, transparency, and no upper limit. Built for digital scarcity." />
-  <meta name="keywords" content="AURUM, Bitcoin, crypto, token, Ethereum, blockchain, BTC reserve, deflationary" />
-  <meta name="author" content="AURUM Team" />
+  <meta name="description" content="AURUM – A Bitcoin-backed token with a provable reserve. It has a floor – but no top." />
+  <meta name="keywords" content="AURUM, Bitcoin-backed, Tokenomics, Ethereum Launchpad, Blockchain Vision" />
+  <meta name="author" content="AURUM Project" />
   <meta property="og:title" content="AURUM – Secured by Bitcoin" />
-  <meta property="og:description" content="A deflationary Bitcoin-backed token with a real reserve. It has a floor – but no top." />
+  <meta property="og:description" content="A new kind of token. Backed by Bitcoin. Transparent, decentralized, and deflationary." />
   <meta property="og:image" content="aurum_logo.png.PNG" />
-  <meta property="og:url" content="https://aurum-coin-chain.github.io/" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="AURUM – Secured by Bitcoin" />
-  <meta name="twitter:description" content="Backed by real BTC. Transparent. No promises – just value." />
-  <meta name="twitter:image" content="aurum_logo.png.PNG" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="aurum_logo.png.PNG" type="image/png" />
   <style>
-    html { scroll-behavior: smooth; }
-    :root {
-      --bg: #0d0d0d; --fg: #f5f5f5; --card: #1a1a1a; --accent: #ffcc00;
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
     }
-    body.light { --bg: #ffffff; --fg: #111111; --card: #f0f0f0; }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--fg);
-      line-height: 1.7; transition: background 0.3s, color 0.3s;
-    }
-    #preloader {
-      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-      background: var(--bg); z-index: 9999; display: flex;
-      justify-content: center; align-items: center;
-      flex-direction: column;
-    }
-    #preloader img { width: 100px; height: 100px; margin-bottom: 20px; animation: pulse 2s infinite; }
-    #preloader span { color: var(--accent); font-size: 1rem; }
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.1); opacity: 0.8; }
-      100% { transform: scale(1); opacity: 1; }
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0d0d0d;
+      color: #f5f5f5;
+      line-height: 1.6;
     }
     header {
-      text-align: center; padding: 60px 20px 30px;
-      background: linear-gradient(to bottom, var(--bg), var(--card)); position: relative;
+      padding: 40px 20px 20px;
+      text-align: center;
     }
-    header h1 { font-size: 2.5rem; color: var(--accent); margin-top: 20px; animation: fadeIn 1.2s ease-in; }
-    header h2 { font-size: 1.1rem; color: #aaa; animation: fadeIn 2s ease-in; }
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(10px); }
-      100% { opacity: 1; transform: translateY(0); }
+    header h1 {
+      font-size: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
     }
-    .theme-toggle {
-      position: absolute; top: 20px; right: 20px; background: var(--card);
-      border: 1px solid #333; color: var(--fg); padding: 6px 12px;
-      border-radius: 6px; cursor: pointer; font-size: 0.9rem;
+    header h1 img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #000;
     }
-    .btc-reserve {
-      text-align: center; font-size: 1.2rem; font-weight: bold;
-      color: var(--accent); margin: 40px auto;
+    .section {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
     }
-    .container {
-      max-width: 1000px; margin: 0 auto; padding: 0 20px 80px;
+    .section h2 {
+      color: #ffcc00;
+      border-bottom: 1px solid #333;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
     }
-    .toc {
-      text-align: center; padding: 20px 10px 30px;
+    .btc-box {
+      background: #111;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      margin-top: 20px;
     }
-    .toc a {
-      display: inline-block; margin: 5px 10px; color: var(--accent);
-      font-weight: 600; text-decoration: none;
+    .btc-box h3 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 20px;
+      margin: 0 0 10px;
     }
-    section {
-      background-color: var(--card); border-radius: 16px; padding: 40px;
-      margin-bottom: 40px; box-shadow: 0 0 20px rgba(0,0,0,0.3);
-      animation: fadeIn 1s ease-in;
+    .btc-box img {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
     }
-    section h3 {
-      color: var(--accent); font-size: 1.6rem; margin-bottom: 20px;
+    .btc-value {
+      font-size: 22px;
+      color: #ffcc00;
     }
-    section ul, section ol { padding-left: 20px; }
-    section li { margin-bottom: 10px; }
-    .newsletter {
-      background: var(--card); border: 2px dashed var(--accent); border-radius: 12px;
-      padding: 30px; text-align: center;
-    }
-    .newsletter input[type=email] {
-      padding: 10px; width: 250px; border: none; border-radius: 6px;
-      margin-right: 10px; font-size: 1rem;
-    }
-    .newsletter button {
-      padding: 10px 20px; background: var(--accent); border: none;
-      font-weight: bold; border-radius: 6px; cursor: pointer;
+    .wallet {
+      background: #191919;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      word-break: break-all;
     }
     footer {
-      text-align: center; padding: 30px; font-size: 0.9rem;
-      color: #666; background-color: #0a0a0a;
-    }
-    .faq h4 {
-      margin-top: 20px; color: var(--fg); font-weight: 600;
-    }
-    .roadmap-item { margin-bottom: 20px; }
-    .roadmap-item h4 { margin-bottom: 5px; color: var(--accent); }
-    @media (max-width: 600px) {
-      header h1 { font-size: 2rem; }
-      section { padding: 20px; }
+      text-align: center;
+      padding: 30px 10px;
+      background: #000;
+      color: #777;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
-  <div id="preloader">
-    <img src="aurum_logo.png.PNG" alt="Loading AURUM Logo">
-    <span>Loading AURUM…</span>
-  </div>
-
   <header>
-    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">🌙 Dark Mode</button>
-    <div style="display: flex; justify-content: center; margin-top: 40px;">
-      <img src="aurum_logo.png.PNG" alt="AURUM Coin Logo" style="width: 120px; height: 120px;" />
-    </div>
-    <h1>AURUM</h1>
-    <h2>Secured by Bitcoin. It has a floor – but no top.</h2>
+    <h1><img src="aurum_logo.png.PNG" alt="Logo"> AURUM</h1>
+    <p>🔒 Secured by Bitcoin • It has a floor – but no top</p>
   </header>
 
-  <nav class="toc">
-    <a href="#tokenomics">📊 Tokenomics</a>
-    <a href="#whitepaper">📄 Whitepaper</a>
-    <a href="#ethereum">🚀 Ethereum Launch</a>
-    <a href="#vision">🔷 Blockchain Vision</a>
-    <a href="#faq">❓ FAQ</a>
-    <a href="#roadmap">🗺️ Roadmap</a>
-    <a href="#newsletter">📬 Newsletter</a>
-  </nav>
-
-  <div class="btc-reserve">
-    <div style="font-size: 1rem; color: #aaa; margin-bottom: 10px;">🔍 Proof of Value</div>
-    <div id="btcReserve">Loading BTC Reserve...</div>
+  <div class="section">
+    <h2><img src="aurum_logo.png.PNG" alt="Logo" style="width:20px;height:20px;border-radius:50%;vertical-align:middle"> Proof of Value</h2>
+    <div class="btc-box">
+      <h3><img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png?v=032" alt="₿"> BTC Reserve</h3>
+      <div id="btcReserve" class="btc-value">Loading...</div>
+    </div>
   </div>
 
-  <div class="container">
-    <!-- Alle Sections wie Tokenomics, Whitepaper, Ethereum, Vision hier -->
+  <div class="section">
+    <h2>Satoshi’s Aurum</h2>
+    <div class="wallet">
+      Wallet: 0x2E13705BC3591BB67ef7a4c27427dbDFE4F7597c
+      <br><small id="ethBalance">Loading balance...</small>
+    </div>
+  </div>
 
-    <section id="roadmap">
-      <h3>🗺️ Roadmap</h3>
-      <div class="roadmap-item">
-        <h4>Phase 1 – Ethereum Launch</h4>
-        <p>Public sale of AU tokens for USDC. Most funds go into BTC reserve. ETH-based distribution begins.</p>
-      </div>
-      <div class="roadmap-item">
-        <h4>Phase 2 – Staking & Proof of Value</h4>
-        <p>Staking system on future AURUM chain. Transparent BTC-backed model validated on-chain.</p>
-      </div>
-      <div class="roadmap-item">
-        <h4>Phase 3 – AURUM Blockchain</h4>
-        <p>Launch of native chain with community governance. AU earned via staking. No central control.</p>
-      </div>
-      <div class="roadmap-item">
-        <h4>Ongoing – Burns, Merchandise & Ecosystem</h4>
-        <p>Deflation via burns, quality merchandise actions, BTC reserve growth and optional utility expansion.</p>
-      </div>
-    </section>
+  <div class="section">
+    <h2>📊 Tokenomics</h2>
+    <ul>
+      <li>Total Supply: 21 million AU (1 million locked for Satoshi)</li>
+      <li>Halving Distribution (450 AU/day, every 4 years)</li>
+      <li>Public Presale in USDC (Ethereum)</li>
+      <li>BTC Reserve grows through sales & burns</li>
+      <li>21% penalty on BTC redemption – AU is burned</li>
+      <li>No team allocation, no insider advantage</li>
+      <li>Symbolic burn on Ethereum transfers</li>
+      <li>Backed by real BTC, publicly visible & untouchable</li>
+    </ul>
+  </div>
 
-    <section id="newsletter">
-      <h3>📬 Stay in the Loop</h3>
-      <p>Enter your email below to be notified about updates, launches and staking opportunities.</p>
-      <form class="newsletter" onsubmit="event.preventDefault(); alert('Thanks! We will keep you updated.');">
-        <input type="email" placeholder="you@example.com" required>
-        <button type="submit">Subscribe</button>
-      </form>
-    </section>
+  <div class="section">
+    <h2>📄 AURUM Whitepaper</h2>
+    <ol>
+      <li><strong>Introduction:</strong> A Bitcoin-secured token system that evolves into its own blockchain.</li>
+      <li><strong>Philosophy:</strong> Real Bitcoin locked in a public, irreversible reserve.</li>
+      <li><strong>Ethereum Phase:</strong> AU sold for USDC, most funds converted to BTC.</li>
+      <li><strong>The Reserve:</strong> Locked BTC creates a real value floor – no ceiling.</li>
+      <li><strong>Redemption:</strong> AU → aBTC with 21% burn. Encourages long-term holders.</li>
+      <li><strong>AURUM Chain:</strong> Future blockchain with daily staking emission (450 AU).</li>
+      <li><strong>Tokenomics:</strong> 21M AU, no team allocation, BTC grows through sales.</li>
+      <li><strong>Proof of Value:</strong> BTC reserve transparently displayed.</li>
+      <li><strong>Vision:</strong> Protect BTC scarcity before institutional absorption.</li>
+      <li><strong>Open Source:</strong> Community-driven, decentralized, transparent.</li>
+    </ol>
+  </div>
 
-    <section id="faq" class="faq">
-      <h3>❓ Frequently Asked Questions (FAQ)</h3>
-      <h4>What is AURUM?</h4>
-      <p>AURUM is a Bitcoin-backed token that provides real value through a public BTC reserve. It is deflationary and evolves into its own blockchain.</p>
-      <h4>How can I get AU tokens?</h4>
-      <p>AU tokens were available during the Ethereum launch phase and will be earnable via staking on the future AURUM blockchain.</p>
-      <h4>What happens to the BTC reserve?</h4>
-      <p>The BTC reserve is publicly verifiable, locked, and never withdrawable. It ensures a real value floor for AURUM.</p>
-      <h4>Is AURUM a financial product?</h4>
-      <p>No. AURUM does not make any return promises. It is a transparent, decentralized asset with a provable reserve.</p>
-    </section>
+  <div class="section">
+    <h2>🚀 Phase One: Ethereum Launchpad</h2>
+    <ul>
+      <li>AU launches on Ethereum</li>
+      <li>Initial supply via halving distribution (450 AU daily)</li>
+      <li>Presale in USDC, funds flow into BTC reserve</li>
+      <li>Public liquidity in WBTC</li>
+      <li>No insider deals – fair launch</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>🔷 Next: AURUM Blockchain & Vision</h2>
+    <ul>
+      <li>AURUM transitions to its own chain</li>
+      <li>Staking-based distribution (no sales)</li>
+      <li>Redemptions only possible via the native chain</li>
+      <li>Deflationary by nature – burns via transfers, redemption penalty</li>
+      <li>Immutable BTC reserve grows over time</li>
+    </ul>
   </div>
 
   <footer>
-    &copy; 2025 AURUM. Born as a meme. Backed by value. Secured by Bitcoin.
+    &copy; 2025 AURUM – Born as a meme. Backed by value. Powered by Bitcoin.
   </footer>
 
   <script>
-    const address = 'bc1qzdtst5k56qkcxckgd7dn4s6s2y2v4ac09la4rt';
-    const apiURL = `https://blockstream.info/api/address/${address}`;
-    async function updateBTCReserve() {
-      const el = document.getElementById('btcReserve');
-      try {
-        const res = await fetch(apiURL);
-        const data = await res.json();
+    // BTC Reserve
+    const btcAddress = 'bc1qzdtst5k56qkcxckgd7dn4s6s2y2v4ac09la4rt';
+    fetch(`https://blockstream.info/api/address/${btcAddress}`)
+      .then(res => res.json())
+      .then(data => {
         const sats = data.chain_stats.funded_txo_sum - data.chain_stats.spent_txo_sum;
-        const btc = sats / 100_000_000;
-        el.innerText = `🟡 BTC Reserve: ${btc.toFixed(4)} BTC`;
-      } catch (error) {
-        el.innerText = '⚠️ BTC Reserve: Error loading';
-      }
-    }
-    updateBTCReserve();
-    setInterval(updateBTCReserve, 60000);
+        const btc = sats / 1e8;
+        document.getElementById('btcReserve').innerText = `₿ ${btc.toFixed(4)} BTC`;
+      }).catch(() => {
+        document.getElementById('btcReserve').innerText = '⚠️ Unable to load BTC';
+      });
 
-    function toggleTheme() {
-      const body = document.body;
-      const btn = document.getElementById('themeToggle');
-      body.classList.toggle('light');
-      btn.textContent = body.classList.contains('light') ? '☀️ Light Mode' : '🌙 Dark Mode';
-    }
-
-    window.addEventListener('load', () => {
-      const preloader = document.getElementById('preloader');
-      if (preloader) preloader.style.display = 'none';
-    });
+    // Ethereum Wallet Balance (Satoshi's Wallet)
+    const ethAddress = '0x2E13705BC3591BB67ef7a4c27427dbDFE4F7597c';
+    fetch(`https://api.etherscan.io/api?module=account&action=balance&address=${ethAddress}&tag=latest&apikey=YourApiKeyToken`)
+      .then(res => res.json())
+      .then(data => {
+        const eth = parseFloat(data.result) / 1e18;
+        document.getElementById('ethBalance').innerText = `Balance: ${eth.toFixed(4)} ETH`;
+      }).catch(() => {
+        document.getElementById('ethBalance').innerText = '⚠️ ETH Balance not available';
+      });
   </script>
-
 </body>
 </html>
-
 
 
