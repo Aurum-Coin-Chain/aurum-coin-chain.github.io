@@ -23,11 +23,6 @@
       color: #f9f9f9;
       line-height: 1.6;
       padding-bottom: 100px;
-      transition: background 0.3s, color 0.3s;
-    }
-    body.light-mode {
-      background-color: #fff;
-      color: #000;
     }
     header {
       text-align: center;
@@ -61,8 +56,9 @@
       margin: 40px auto;
       padding: 0 20px;
     }
-    h2, em {
+    h2 {
       color: #FFD700;
+      margin-bottom: 10px;
     }
     ul, ol {
       padding-left: 20px;
@@ -92,48 +88,13 @@
       padding: 20px;
       text-align: center;
       margin-top: 40px;
-      word-break: break-all;
     }
-    .wallet-address-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .wallet-address {
-      font-family: monospace;
-      font-size: 0.9rem;
-      background-color: #222;
-      color: #FFD700;
-      padding: 5px 10px;
-      border-radius: 5px;
-    }
-    .copy-btn {
-      background-color: #FFD700;
-      color: #000;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    .copy-btn:hover {
-      background-color: #ffc400;
-    }
-    #modeToggle {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #000;
-      color: #FFD700;
-      border: 1px solid #FFD700;
-      border-radius: 30px;
-      padding: 10px 16px;
-      font-weight: bold;
-      z-index: 999;
-      cursor: pointer;
+    .satoshi-wallet img {
+      vertical-align: middle;
+      height: 24px;
+      width: 24px;
+      border-radius: 50%;
+      margin: 0 5px;
     }
     footer {
       position: fixed;
@@ -148,34 +109,28 @@
   </style>
 </head>
 <body>
-  <button id="modeToggle" onclick="toggleMode()">🌙 Dark Mode</button>
+  <header>
+    <img src="aurum_logo.png.PNG" alt="AURUM Logo" class="logo" />
+    <h1>AURUM – Secured by Bitcoin</h1>
+    <nav>
+      <a href="#tokenomics">Tokenomics</a>
+      <a href="#whitepaper">Whitepaper</a>
+      <a href="#launchpad">Launchpad</a>
+      <a href="#vision">Vision</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </header>
+
+  <section class="reserve-box">
+    <h3>Proof of Value</h3>
+    <div class="live-data" id="btcReserve">Loading BTC reserve...</div>
+  </section>
 
   <section class="satoshi-wallet">
     <h3>Satoshi’s <img src="aurum_logo.png.PNG" alt="AURUM Coin" /></h3>
-    <div class="wallet-address-container">
-      <div class="wallet-address" id="walletAddress">0x2E13705BC3591BB67ef7a4c27427dbDFE4F7597c</div>
-      <button class="copy-btn" onclick="copyWallet()">Copy</button>
-    </div>
+    <p>Ethereum Wallet: <code>0x2E13705BC3591BB67ef7a4c27427dbDFE4F7597c</code></p>
     <p class="live-data" id="ethBalance">Loading AU balance...</p>
   </section>
-
-  <script>
-    function copyWallet() {
-      const address = document.getElementById('walletAddress').innerText;
-      navigator.clipboard.writeText(address).then(() => {
-        alert('Wallet address copied!');
-      });
-    }
-
-    function toggleMode() {
-      const body = document.body;
-      const button = document.getElementById('modeToggle');
-      body.classList.toggle('light-mode');
-      button.innerText = body.classList.contains('light-mode') ? '☀️ Light Mode' : '🌙 Dark Mode';
-    }
-  </script>
-</body>
-</html>
 
  <section id="tokenomics">
   <h2>📊 AURUM Tokenomics</h2>
@@ -238,9 +193,8 @@
     <li>Market price can rise freely – but never fall below reserve value</li>
   </ul>
 
-  <p><em><span style="color: #FFD700;">Born as a meme. Backed by value. Secured by Bitcoin.  
-A new kind of token.</span></em></p>
-
+  <p><em>Born as a meme. Backed by value. Secured by Bitcoin.  
+  A new kind of token.</em></p>
 </section>
 
 
@@ -404,42 +358,35 @@ A new kind of token.</span></em></p>
 
   <script>
     const btcAddress = 'bc1qzdtst5k56qkcxckgd7dn4s6s2y2v4ac09la4rt';
-  const btcApi = `https://blockstream.info/api/address/${btcAddress}`;
-  async function loadBTC() {
-    try {
-      const res = await fetch(btcApi);
-      const data = await res.json();
-      const sats = data.chain_stats.funded_txo_sum - data.chain_stats.spent_txo_sum;
-      const btc = sats / 100000000;
-      document.getElementById("btcReserve").innerText = `${btc.toFixed(4)} BTC`;
-    } catch (e) {
-      document.getElementById("btcReserve").innerText = "⚠️ Unable to load";
+    const btcApi = `https://blockstream.info/api/address/${btcAddress}`;
+    async function loadBTC() {
+      try {
+        const res = await fetch(btcApi);
+        const data = await res.json();
+        const sats = data.chain_stats.funded_txo_sum - data.chain_stats.spent_txo_sum;
+        const btc = sats / 100000000;
+        document.getElementById("btcReserve").innerText = `${btc.toFixed(4)} BTC`;
+      } catch (e) {
+        document.getElementById("btcReserve").innerText = "⚠️ Unable to load";
+      }
     }
-  }
 
-  const etherscanApi = `https://api.etherscan.io/api?module=account&action=tokenbalance&contractaddress=0xTokenContractAddress&address=0x2E13705BC3591BB67ef7a4c27427dbDFE4F7597c&tag=latest&apikey=YourApiKeyToken`;
-  async function loadETHBalance() {
-    try {
-      const res = await fetch(etherscanApi);
-      const data = await res.json();
-      const balance = Number(data.result) / 1e18;
-      document.getElementById("ethBalance").innerText = balance.toFixed(2) + " AU";
-    } catch (e) {
-      document.getElementById("ethBalance").innerText = "⚠️ Unable to load";
+    const etherscanApi = `https://api.etherscan.io/api?module=account&action=tokenbalance&contractaddress=0xTokenContractAddress&address=0x2E13705BC3591BB67ef7a4c27427dbDFE4F7597c&tag=latest&apikey=YourApiKeyToken`;
+    async function loadETHBalance() {
+      try {
+        const res = await fetch(etherscanApi);
+        const data = await res.json();
+        const balance = Number(data.result) / 1e18;
+        document.getElementById("ethBalance").innerText = balance.toFixed(2) + " AU";
+      } catch (e) {
+        document.getElementById("ethBalance").innerText = "⚠️ Unable to load";
+      }
     }
-  }
 
-  function copyETH() {
-    const text = document.getElementById("ethAddress").innerText;
-    navigator.clipboard.writeText(text).then(() => {
-      alert("Wallet address copied to clipboard!");
-    });
-  }
-
-  loadBTC();
-  // Uncomment this if you have a real API key and token contract address:
-  // loadETHBalance();
-  setInterval(loadBTC, 60000);
+    loadBTC();
+    // Uncomment this if you have a real API key and token contract address:
+    // loadETHBalance();
+    setInterval(loadBTC, 60000);
   </script>
 </body>
 </html>
