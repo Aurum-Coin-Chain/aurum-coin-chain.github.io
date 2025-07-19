@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="AURUM is a deflationary, Bitcoin-backed token with real value and full transparency. Live BTC Reserve. No top – only a true floor." />
   <meta property="og:title" content="AURUM – Secured by Bitcoin" />
@@ -111,22 +111,25 @@
       padding: 10px;
       font-size: 0.8rem;
     }
-    .mode-toggle {
+    #modeToggle {
       position: fixed;
-      top: 10px;
-      right: 10px;
-      background: #FFD700;
-      color: #000;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 6px;
-      cursor: pointer;
+      bottom: 20px;
+      right: 20px;
+      background-color: #000;
+      color: #FFD700;
+      border: 1px solid #FFD700;
+      border-radius: 30px;
+      padding: 10px 16px;
       font-weight: bold;
+      z-index: 999;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <button class="mode-toggle" onclick="toggleMode()">Dark Mode</button>
+  <!-- Inhaltliche Struktur wurde beibehalten -->
+  <!-- Alle Abschnitte und Texte folgen gleich -->
+  <button id="modeToggle" onclick="toggleMode()">🌙 Dark Mode</button>
 
  <!DOCTYPE html>
 <html lang="en">
@@ -572,5 +575,49 @@
     setInterval(loadBTC, 60000);
     setInterval(loadETHBalance, 60000);
   </script>
+  <script>
+    const btcAddress = 'bc1qzdtst5k56qkcxckgd7dn4s6s2y2v4ac09la4rt';
+    const btcApi = https://blockstream.info/api/address/${btcAddress};
+    async function loadBTC() {
+      try {
+        const res = await fetch(btcApi);
+        const data = await res.json();
+        const sats = data.chain_stats.funded_txo_sum - data.chain_stats.spent_txo_sum;
+        const btc = sats / 100000000;
+        document.getElementById("btcReserve").innerText = ${btc.toFixed(4)} BTC;
+      } catch (e) {
+        document.getElementById("btcReserve").innerText = "⚠️ Unable to load";
+      }
+    }
+
+    const etherscanApi = https://api.etherscan.io/api?module=account&action=balance&address=0x2E13705BC3591BB67ef7a4c27427dbDFE4F7597c&tag=latest&apikey=YourApiKeyToken;
+    async function loadETHBalance() {
+      try {
+        const res = await fetch(etherscanApi);
+        const data = await res.json();
+        const balance = Number(data.result) / 1e18;
+        document.getElementById("ethBalance").innerText = balance.toFixed(4) + " ETH";
+      } catch (e) {
+        document.getElementById("ethBalance").innerText = "⚠️ Unable to load";
+      }
+    }
+
+    function toggleMode() {
+      const body = document.body;
+      const button = document.getElementById('modeToggle');
+      body.classList.toggle('light-mode');
+      button.innerText = body.classList.contains('light-mode') ? '☀️ Light Mode' : '🌙 Dark Mode';
+    }
+
+    loadBTC();
+    loadETHBalance();
+    setInterval(loadBTC, 60000);
+    setInterval(loadETHBalance, 60000);
+  </script>
 </body>
+</html>
+</body>
+<body>
+  <button class="mode-toggle" onclick="toggleMode()">Dark Mode</button>
+
 </html>
