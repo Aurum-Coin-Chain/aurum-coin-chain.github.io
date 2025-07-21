@@ -1,87 +1,136 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AUR | The Gold-Backed Blockchain</title>
-  <meta name="description" content="AUR is a decentralized, gold-backed cryptocurrency built on Ethereum.">
-  <meta property="og:title" content="AUR | The Gold-Backed Blockchain">
-  <meta property="og:description" content="AUR is a decentralized, gold-backed cryptocurrency built on Ethereum.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://aurum-coin-chain.github.io/">
-  <meta property="og:image" content="aurum_logo_transparent.png">
-  <link rel="icon" href="aurum_logo_transparent.png" type="image/png">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-  <script>
-    function toggleTheme() {
-      const html = document.documentElement;
-      const currentTheme = html.getAttribute('data-theme');
-      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-      html.setAttribute('data-theme', newTheme);
-      document.getElementById('theme-label').innerText = newTheme === 'dark' ? 'Light Mode' : 'Dark Mode';
+  <meta name="description" content="AURUM is a deflationary, Bitcoin-backed token with real value and full transparency. Live BTC Reserve. No top – only a true floor." />
+  <meta property="og:title" content="AURUM – Secured by Bitcoin" />
+  <meta property="og:description" content="The future of digital value. Transparent. Immutable. Backed by real BTC." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="aurum_logo.png.PNG" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="icon" href="aurum_logo.png.PNG" type="image/png" />
+  <title>AURUM – Secured by Bitcoin</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    window.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('theme-label').innerText = document.documentElement.getAttribute('data-theme') === 'dark' ? 'Light Mode' : 'Dark Mode';
-    });
-  </script>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0e0e0e;
+      color: #f9f9f9;
+      line-height: 1.6;
+      padding-bottom: 100px;
+    }
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+    header .logo {
+      width: 100px;
+      border-radius: 50%;
+      background-color: #000;
+    }
+    header h1 {
+      font-size: 2rem;
+      color: #FFD700;
+      margin-top: 10px;
+    }
+    nav {
+      text-align: center;
+      margin-top: 20px;
+    }
+    nav a {
+      color: #FFD700;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    h2 {
+      color: #FFD700;
+      margin-bottom: 10px;
+    }
+    ul, ol {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+    .reserve-box {
+      background-color: #1c1c1c;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .reserve-box h3 {
+      color: #FFD700;
+      margin-bottom: 10px;
+    }
+    .live-data {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #00ff88;
+    }
+    .satoshi-wallet {
+      background-color: #111;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .satoshi-wallet img {
+      vertical-align: middle;
+      height: 24px;
+      width: 24px;
+      border-radius: 50%;
+      margin: 0 5px;
+    }
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: #000;
+      color: #888;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.8rem;
+    }
+  </style>
 </head>
-<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
-  <!-- Preloader -->
-  <div id="preloader" class="fixed inset-0 bg-white dark:bg-black flex justify-center items-center z-50">
-    <img src="aurum_logo_transparent.png" alt="Loading..." class="w-16 h-16 animate-ping" />
-  </div>
-  <script>
-    window.addEventListener('load', () => {
-      const preloader = document.getElementById('preloader');
-      preloader.style.display = 'none';
-    });
-  </script>
-
-  <!-- Header -->
-  <header class="flex justify-between items-center p-4 md:p-6 bg-yellow-100 dark:bg-gray-800 shadow-md sticky top-0 z-50">
-    <div class="flex items-center space-x-4">
-      <img src="aurum_logo_transparent.png" alt="AURUM Logo" class="w-10 h-10 rounded-full bg-black p-1" />
-      <h1 class="text-xl md:text-2xl font-bold">AUR</h1>
-    </div>
-    <button onclick="toggleTheme()" class="text-sm bg-yellow-500 text-white px-3 py-1 rounded">
-      <span id="theme-label">Dark Mode</span>
-    </button>
+<body>
+  <header>
+    <img src="aurum_logo.png.PNG" alt="AURUM Logo" class="logo" />
+    <h1>AURUM – Secured by Bitcoin</h1>
+    <nav>
+      <a href="#tokenomics">Tokenomics</a>
+      <a href="#whitepaper">Whitepaper</a>
+      <a href="#launchpad">Launchpad</a>
+      <a href="#vision">Vision</a>
+      <a href="#faq">FAQ</a>
+    </nav>
   </header>
 
-  <!-- Navigation -->
-  <nav class="bg-yellow-200 dark:bg-gray-700 p-4 text-center space-x-4 text-sm md:text-base">
-    <a href="#overview" class="hover:underline">Overview</a>
-    <a href="#tokenomics" class="hover:underline">Tokenomics</a>
-    <a href="#whitepaper" class="hover:underline">Whitepaper</a>
-    <a href="#launchpad" class="hover:underline">Ethereum Launchpad</a>
-    <a href="#vision" class="hover:underline">Blockchain Vision</a>
-    <a href="#roadmap" class="hover:underline">Roadmap</a>
-    <a href="#faq" class="hover:underline">FAQ</a>
-    <a href="#token-address" class="hover:underline">Token Address</a>
-    <a href="#disclaimer" class="hover:underline">Disclaimer</a>
-  </nav>
-
-  <!-- Overview -->
-  <section id="overview" class="p-6 md:p-12">
-    <h2 class="text-2xl md:text-3xl font-bold mb-4 flex items-center">
-      <img src="aurum_logo_transparent.png" class="w-6 h-6 mr-2 bg-black rounded-full p-1" /> What is <img src="aurum_logo_transparent.png" class="w-6 h-6 ml-2 bg-black rounded-full p-1 inline-block" />?
-    </h2>
-    <p class="mb-4">
-      <img src="aurum_logo_transparent.png" class="w-5 h-5 inline-block bg-black rounded-full p-0.5" /> is a decentralized digital asset built on the Ethereum blockchain and backed by real gold reserves. By combining the timeless value of gold with the power of blockchain, <img src="aurum_logo_transparent.png" class="w-5 h-5 inline-block bg-black rounded-full p-0.5" /> ensures security, transparency, and stability in every transaction.
-    </p>
+  <section class="reserve-box">
+    <h3>Proof of Value</h3>
+    <div class="live-data" id="btcReserve">Loading BTC reserve...</div>
   </section>
 
-  <!-- Token Address -->
-  <section id="token-address" class="p-6 md:p-12 bg-yellow-50 dark:bg-gray-800">
-    <h2 class="text-2xl md:text-3xl font-bold mb-4 flex items-center">
-      <img src="aurum_logo_transparent.png" class="w-6 h-6 mr-2 bg-black rounded-full p-1" />
-      Token Address
-    </h2>
-    <p class="text-sm md:text-base font-mono break-all bg-white dark:bg-gray-900 p-4 rounded shadow-md">
-      0x890E2f6c06c8e007e6f60D3eE0A9EdFB4134e30D
-    </p>
+  <section class="satoshi-wallet">
+    <h3>Satoshi’s <img src="aurum_logo.png.PNG" alt="AURUM Coin" /></h3>
+    <p><code>0x2E13705BC3591BB67ef7a4c27427dbDFE4F7597c</code></p>
+    <p class="live-data" id="ethBalance">Loading AU balance...</p>
   </section>
-
 
  <section id="tokenomics">
   <h2>📊 AURUM Tokenomics</h2>
@@ -302,17 +351,10 @@ A new kind of token.</em></p>
   <p>Always do your own research (DYOR) and consult a licensed financial advisor before making any investment-related choices.</p>
 </section>
 
-<footer style="text-align: center; margin-top: 40px;">
-  <p style="color: white;">&copy; 2025 AURUM. Powered by Bitcoin scarcity.</p>
-  <p>
-    <a href="https://x.com/AurumBlockChain" target="_blank" rel="noopener"
-       style="color: white; text-decoration: none; font-weight: 500;" title="Follow us on X (Twitter)">
-      <img src="x-logo.png" alt="X Logo"
-           style="height: 24px; vertical-align: middle; margin-right: 8px;" />
-      @AurumBlockChain
-    </a>
-  </p>
+<footer>
+  &copy; 2025 AURUM. Powered by Bitcoin scarcity.
 </footer>
+
 
   <script>
     const btcAddress = 'bc1qzdtst5k56qkcxckgd7dn4s6s2y2v4ac09la4rt';
