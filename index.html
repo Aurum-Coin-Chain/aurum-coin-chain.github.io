@@ -22,9 +22,9 @@
       background-color: #0e0e0e;
       color: #f9f9f9;
       line-height: 1.6;
-      padding-bottom: 100px;
+      padding-bottom: 120px;
     }
-        header {
+    header {
       text-align: center;
       padding: 40px 20px 20px;
     }
@@ -42,37 +42,99 @@
       text-align: center;
       margin-top: 20px;
     }
-    nav span {
+    nav a {
       color: #FFD700;
       margin: 0 10px;
       text-decoration: none;
       font-weight: bold;
       cursor: pointer;
     }
-    nav span:hover {
+    nav a:hover {
       text-decoration: underline;
     }
     section {
       max-width: 800px;
       margin: 40px auto;
       padding: 0 20px;
+    }
+    h2 {
+      color: #FFD700;
+      margin-bottom: 10px;
+    }
+     ul, ol {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+    .reserve-box {
+      background-color: #1c1c1c;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .reserve-box h3 {
+      color: #FFD700;
+      margin-bottom: 10px;
+    }
+    .live-data {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #00ff88;
+    }
+    .satoshi-wallet {
+      background-color: #111;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .satoshi-wallet img {
+      vertical-align: middle;
+      height: 24px;
+      width: 24px;
+      border-radius: 50%;
+      margin: 0 5px;
+    }
+    .toggle-section {
       display: none;
+      animation: fadeIn 0.3s ease-in-out;
     }
-    section.active {
-      display: block;
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
-      </style>
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: #000;
+      color: #888;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.8rem;
+    }
+    footer a {
+      color: #888;
+      text-decoration: none;
+      margin-left: 10px;
+    }
+    footer a:hover {
+      color: #FFD700;
+    }
+  </style>
 </head>
 <body>
   <header>
     <img src="aurum_logo.png.PNG" alt="AURUM Logo" class="logo" />
     <h1>AURUM – Secured by Bitcoin</h1>
     <nav>
-      <span onclick="toggleSection('tokenomics')">Tokenomics</span>
-      <span onclick="toggleSection('whitepaper')">Whitepaper</span>
-      <span onclick="toggleSection('launchpad')">Launchpad</span>
-      <span onclick="toggleSection('vision')">Vision</span>
-      <span onclick="toggleSection('faq')">FAQ</span>
+      <a onclick="toggleSection('tokenomics')">Tokenomics</a>
+      <a onclick="toggleSection('whitepaper')">Whitepaper</a>
+      <a onclick="toggleSection('launchpad')">Launchpad</a>
+      <a onclick="toggleSection('vision')">Vision</a>
+      <a onclick="toggleSection('faq')">FAQ</a>
     </nav>
   </header>
 
@@ -80,13 +142,13 @@
     <h3>Proof of Value</h3>
     <div class="live-data" id="btcReserve">Loading BTC reserve...</div>
   </section>
-
   <section class="satoshi-wallet">
     <h3>Satoshi’s <img src="aurum_logo.png.PNG" alt="AURUM Coin" /></h3>
     <p><code>0x2E13705BC3591BB67ef7a4c27427dbDFE4F7597c</code></p>
     <p class="live-data" id="ethBalance">Loading AU balance...</p>
   </section>
-    <section id="tokenomics" class="active">
+
+  <section id="tokenomics" class="toggle-section">
     <h2>📊 AURUM Tokenomics</h2>
     <p><strong>1. Total Supply: 21 million AU</strong></p>
     <ul>
@@ -111,15 +173,15 @@
       <li>The remaining funds support project development and initial WBTC trading liquidity</li>
       <li>No team allocation, no insider discounts – everyone buys under equal conditions</li>
     </ul>
-        <p><strong>4. Redemption (only on the AURUM chain)</strong></p>
+
+    <p><strong>4. Redemption (only on the AURUM chain)</strong></p>
     <ul>
       <li>AU → BTC (via aBTC) with a 21% penalty</li>
       <li>The 21% remains permanently in the BTC reserve</li>
       <li>Redeemed AU is fully burned</li>
       <li>Protects the system from abuse and encourages long-term holding</li>
     </ul>
-
-    <p><strong>5. Symbolic Burn on Transactions</strong></p>
+     <p><strong>5. Symbolic Burn on Transactions</strong></p>
     <ul>
       <li>A small amount of AU is automatically burned with every Ethereum transaction</li>
       <li>Honors Bitcoin scarcity and reinforces AUs deflationary nature</li>
@@ -138,7 +200,8 @@
       <li>AU used in such actions is burned</li>
       <li>Profits (after costs) are voluntarily added to the BTC reserve</li>
     </ul>
-        <p><strong>8. No Promises – But a Real Floor</strong></p>
+
+    <p><strong>8. No Promises – But a Real Floor</strong></p>
     <ul>
       <li>AURUM is not a financial product and makes no return guarantees</li>
       <li>The BTC reserve provides a real, verifiable value floor</li>
@@ -149,17 +212,17 @@
     A new kind of token.</em></p>
   </section>
 
-  <section id="whitepaper">
+  <section id="whitepaper" class="toggle-section">
     <h2>📄 AURUM Whitepaper</h2>
     <ol>
       <li><strong>PoV – Proof of Value Protocol</strong></li>
       <li><strong>1. Introduction</strong><br>
-        AURUM (AU) starts as a meme coin but follows a serious, long-term vision: a deflationary token system backed by real Bitcoin. The foundation is formed by publicly visible BTC reserves that remain permanently in the system. AURUM combines the charm of a community token with true value coverage.
+        AURUM (AU) starts as a meme coin but follows a serious, long-term vision: a deflationary token system backed by real Bitcoin. The foundation is formed by publicly visible BTC reserves that remain permanently in the system.
       </li>
-            <li><strong>2. No Central Company – 100% Decentralization</strong><br>
-        There is no central company or authority behind AURUM. The project is fully decentralized. Merchandise is voluntarily offered by supporters and has no legal or financial connection to the token. All BTC revenue (after costs) is voluntarily added to the reserve. The team receives no free AU – all tokens are purchased under the same conditions as the community.
+      <li><strong>2. No Central Company – 100% Decentralization</strong><br>
+        There is no central company or authority behind AURUM. The project is fully decentralized.
       </li>
-      <li><strong>3. AURUMBTC (aBTC)</strong><br>
+        <li><strong>3. AURUMBTC (aBTC)</strong><br>
         Unlike centralized solutions like WBTC, which can be frozen or censored, AURUM's own wrapped Bitcoin (aBTC) will only exist on the AURUM blockchain: censorship-resistant, fully decentralized, secured by BTC in a 3/5 multisig wallet.<br>
         The protocol defines the swap mechanism: Anyone exchanging AU for aBTC receives only 79% in BTC. The remaining 21% permanently stays in the reserve. The exchanged AU is fully burned.<br>
         This process is irreversible – it reduces AU supply and aBTC pool simultaneously, adding a deflationary effect.
@@ -167,7 +230,7 @@
       <li><strong>4. Bitcoin Reserve & Irreversibility</strong><br>
         Once BTC enters the AURUM reserve, it permanently exits market circulation. No withdrawals, no reclaiming. The reserve remains in the system forever – creating a reliable, transparent, and immutable value base for AU.
       </li>
-            <li><strong>5. Redemption with Deflationary Logic</strong><br>
+      <li><strong>5. Redemption with Deflationary Logic</strong><br>
         Redemption is allowed – but fixed: only 79% of BTC value is returned, 21% remains in the reserve. All returned AU is burned, reducing supply and strengthening system integrity.
       </li>
       <li><strong>6. Halving & Migration</strong><br>
@@ -181,12 +244,11 @@
         This provides long-term decentralized network security – based on staking, not mining.
       </li>
       <li><strong>7. Conclusion</strong><br>
-        AURUM is more than a meme – it’s a deflationary BTC value system.<br>
-        A place where Bitcoin stays – transparent, decentralized, final.
+        AURUM is more than a meme – it’s a deflationary BTC value system. A place where Bitcoin stays – transparent, decentralized, final.
       </li>
-            <li><strong>8. Why Bitcoin Must Stay in AURUM</strong><br>
-        BTC is becoming scarcer – institutions accumulate while retail access becomes harder. AURUM reacts by collecting real BTC and locking it permanently in the system.<br>
-        These BTC are non-sellable, non-withdrawable, and secured in a multisig wallet.<br>
+      <li><strong>8. Why Bitcoin Must Stay in AURUM</strong><br>
+        BTC is becoming scarcer – institutions accumulate while retail access becomes harder. AURUM reacts by collecting real BTC and locking it permanently in the system.
+      </li>    These BTC are non-sellable, non-withdrawable, and secured in a multisig wallet.<br>
         Anyone holding AU indirectly participates in this protected reserve.
       </li>
       <li><strong>9. Proof of Value (PoV)</strong><br>
@@ -212,9 +274,11 @@
         Started as a meme coin – but built for real value.
       </li>
     </ol>
-  </section>
-    <section id="launchpad">
-    <h2>🟡 AURUM – Phase One: Ethereum Launchpad</h2>
+  </div>
+</section>
+  <section id="launchpad" class="collapsible-section">
+  <button class="toggle-btn" onclick="toggleSection(this)">🟡 AURUM – Phase One: Ethereum Launchpad</button>
+  <div class="content">
     <p>AURUM begins where today’s crypto world lives: on Ethereum. This first phase serves as a launchpad – for the token, the community, the idea.</p>
     <p>In a public presale, the AU token is sold. The goal is not quick profit, but long-term structure: most of the proceeds are converted into real Bitcoin and stored in a public, immutable reserve.</p>
     <p>AURUM deliberately starts as a meme coin – but with long-term vision.</p>
@@ -225,9 +289,11 @@
     <p>Merchandise is also part of the launch phase: high-quality, limited products purchasable with Bitcoin, stablecoins, or AU. Profits after costs go into the BTC reserve voluntarily – not a promise, but visible reality.</p>
     <p>A strong symbol: one million AU coins are locked forever for Satoshi Nakamoto – publicly visible, permanently immobile. A digital tribute to the origin.</p>
     <p>This first phase on Ethereum is the setup. It is not the goal – but the road toward something permanent.</p>
-  </section>
-    <section id="vision">
-    <h2>🔷 AURUM – The Next Step: Blockchain & Vision</h2>
+  </div>
+</section>
+  <section id="vision" class="collapsible-section">
+  <button class="toggle-btn" onclick="toggleSection(this)">🔷 AURUM – The Next Step: Blockchain & Vision</button>
+  <div class="content">
     <p>In Phase two, AURUM becomes independent.</p>
     <p>The dedicated blockchain launches – lightweight, accessible, and entirely built on real Bitcoin.</p>
     <p>No centralized platform, no interim solution – but a decentralized network sustaining itself.</p>
@@ -244,12 +310,16 @@
     <p>AURUM is open source. Anyone can view, understand, and improve the code.</p>
     <p>The community participates. New applications, interfaces, and expansions are welcome.</p>
     <p>No admin access. No central function. The code is the law.</p>
-        <p>And the BTC reserve?</p>
+    <p>And the BTC reserve?</p>
     <p>It remains the anchor. It grows over time – public, visible, permanent.</p>
     <p>Every AU is backed by real BTC. While the reserve is fixed, the market price remains free.</p>
     <p>That means: There is always a real value floor – but no limit above.</p>
     <p>The market can value AU higher – but never below the reserve’s value.</p>
-    <hr />
+  </div>
+</section>
+  <section class="collapsible-section">
+  <button class="toggle-btn" onclick="toggleSection(this)">📉 Redemption & Reserve Protection</button>
+  <div class="content">
     <p>Those wishing to exchange AU back into BTC can do so –</p>
     <p>but only via AURUM’s own wrapped Bitcoin (aBTC) with a 21% deduction.</p>
     <p>aBTC is AURUM’s internal form of Bitcoin, fully backed and circulating within the system.</p>
@@ -257,89 +327,58 @@
     <p>Redeemed AU is burned – permanently. This reduces supply and protects the system.</p>
     <p>This deduction isn’t a barrier but a safeguard – preventing abuse by large actors.</p>
     <p>Greed becomes unattractive. The reserve stays intact. The community remains stable.</p>
-    <hr />
-    <h3>🟡 AURUM – The Vision: Secure Bitcoin before it’s too late</h3>
+  </div>
+</section>
+
+<section class="collapsible-section">
+  <button class="toggle-btn" onclick="toggleSection(this)">🟡 The Vision: Secure Bitcoin before it’s too late</button>
+  <div class="content">
     <p>Bitcoin is becoming scarce. Major exchanges, funds, and institutions are buying all they can.</p>
     <p>Access to BTC is growing more difficult and expensive for everyday users.</p>
     <p>AURUM responds by collecting real BTC – while it's still accessible – and locking it into the system forever.</p>
     <p>These BTC are not for sale. No one can retrieve them. They remain secured inside AURUM permanently.</p>
     <p>aBTC is the only internal access – fully backed and used only within the system.</p>
-        <p>And that’s what gives AU its value.</p>
+    <p>And that’s what gives AU its value.</p>
     <p>Because AU isn’t just a token. AU is a share of a system that permanently holds real BTC – publicly, securely, and censorship-resistant.</p>
     <p>Whoever understands this now stands where Bitcoiners stood in 2009: right at the beginning.</p>
     <p>The more BTC flows into the reserve, the higher the minimum value rises.</p>
     <p>And the market price? That remains free. But the floor stays – and it grows.</p>
-    <hr />
+  </div>
+</section>
+  <section class="collapsible-section">
+  <button class="toggle-btn" onclick="toggleSection(this)">🔐 Final Message</button>
+  <div class="content">
     <p>AURUM is a digital vault. Open to all. Untouchable by others.</p>
     <p>What’s being created here is more than a project. It’s a new foundation –</p>
     <p>a new way to store value – not through computation, but through participation, trust, and transparency.</p>
-    <hr />
     <h3>🟡 AURUM is secured by Bitcoin.</h3>
     <p>🔓 It has a floor – but no top.</p>
-  </section>
-    <section id="faq">
-    <h2>❓ FAQ</h2>
-    <ul>
-      <li><strong>Is AURUM a financial product?</strong> No.</li>
-      <li><strong>How is the BTC reserve verified?</strong> Publicly via explorer.</li>
-      <li><strong>Can I redeem AU for BTC?</strong> Yes, with 21% penalty on the AURUM chain.</li>
-    </ul>
-  </section>
-    <section id="disclaimer">
-    <h2>📢 Legal Disclaimer</h2>
-    <p><strong>AURUM is not a financial product, security, or investment vehicle.</strong></p>
-    <p>This website and its content are for informational and entertainment purposes only. Nothing on this site constitutes financial advice, investment recommendations, or legal counsel of any kind.</p>
-    <p>AURUM was launched as a meme coin and should be understood as a high-risk, experimental project with no guarantees or promises of value, utility, or future performance.</p>
-    <p>Purchasing, holding, or interacting with AU tokens is done at your own risk. The project is community-driven and operates without a central company, administrator, or legal entity.</p>
-    <p>Cryptocurrency markets are volatile, and digital assets can lose their value entirely. You are solely responsible for your decisions and outcomes.</p>
-    <p>Always do your own research (DYOR) and consult a licensed financial advisor before making any investment-related choices.</p>
-  </section>
-    <footer>
-    &copy; 2025 AURUM. Powered by Bitcoin scarcity.
-  </footer>
+  </div>
+</section>
 
-  <script>
-    const btcAddress = 'bc1qzdtst5k56qkcxckgd7dn4s6s2y2v4ac09la4rt';
-    const btcApi = `https://blockstream.info/api/address/${btcAddress}`;
-    async function loadBTC() {
-      try {
-        const res = await fetch(btcApi);
-        const data = await res.json();
-        const sats = data.chain_stats.funded_txo_sum - data.chain_stats.spent_txo_sum;
-        const btc = sats / 100000000;
-        document.getElementById("btcReserve").innerText = `${btc.toFixed(4)} BTC`;
-      } catch (e) {
-        document.getElementById("btcReserve").innerText = "⚠️ Unable to load";
-      }
-    }
+<section id="faq">
+  <h2>❓ FAQ</h2>
+  <ul>
+    <li><strong>Is AURUM a financial product?</strong> No.</li>
+    <li><strong>How is the BTC reserve verified?</strong> Publicly via explorer.</li>
+    <li><strong>Can I redeem AU for BTC?</strong> Yes, with 21% penalty on the AURUM chain.</li>
+  </ul>
+</section>
 
-    const etherscanApi = `https://api.etherscan.io/api?module=account&action=tokenbalance&contractaddress=0xTokenContractAddress&address=0x2E13705BC3591BB67ef7a4c27427dbDFE4F7597c&tag=latest&apikey=YourApiKeyToken`;
-    async function loadETHBalance() {
-      try {
-        const res = await fetch(etherscanApi);
-        const data = await res.json();
-        const balance = Number(data.result) / 1e18;
-        document.getElementById("ethBalance").innerText = balance.toFixed(2) + " AU";
-      } catch (e) {
-        document.getElementById("ethBalance").innerText = "⚠️ Unable to load";
-      }
-    }
+<section id="disclaimer">
+  <h2>📢 Legal Disclaimer</h2>
+  <p><strong>AURUM is not a financial product, security, or investment vehicle.</strong></p>
+  <p>This website and its content are for informational and entertainment purposes only. Nothing on this site constitutes financial advice, investment recommendations, or legal counsel of any kind.</p>
+  <p>AURUM was launched as a meme coin and should be understood as a high-risk, experimental project with no guarantees or promises of value, utility, or future performance.</p>
+  <p>Purchasing, holding, or interacting with AU tokens is done at your own risk. The project is community-driven and operates without a central company, administrator, or legal entity.</p>
+  <p>Cryptocurrency markets are volatile, and digital assets can lose their value entirely. You are solely responsible for your decisions and outcomes.</p>
+  <p>Always do your own research (DYOR) and consult a licensed financial advisor before making any investment-related choices.</p>
+</section>
 
-    loadBTC();
-    // Uncomment this if you have a real API key and token contract address:
-    // loadETHBalance();
-    setInterval(loadBTC, 60000);
-    
-   function toggleSection(id) {
-      const sections = document.querySelectorAll('section');
-      sections.forEach(section => {
-        if (section.id === id) {
-          section.classList.toggle('active');
-        } else {
-          section.classList.remove('active');
-        }
-      });
-    }
-  </script>
-</body>
-</html>
+<footer>
+  &copy; 2025 AURUM. Powered by Bitcoin scarcity.<br />
+  <a href="https://twitter.com/AurumBitcoin" target="_blank" style="color: #FFD700; text-decoration: none;">Twitter</a>
+</footer>
+  <script> const btcAddress = 'bc1qzdtst5k56qkcxckgd7dn4s6s2y2v4ac09la4rt'; const btcApi = `https://blockstream.info/api/address/${btcAddress}`; async function loadBTC() { try { const res = await fetch(btcApi); const data = await res.json(); const sats = data.chain_stats.funded_txo_sum - data.chain_stats.spent_txo_sum; const btc = sats / 100000000; document.getElementById("btcReserve").innerText = `${btc.toFixed(4)} BTC`; } catch (e) { document.getElementById("btcReserve").innerText = "⚠️ Unable to load"; } } const etherscanApi = `https://api.etherscan.io/api?module=account&action=tokenbalance&contractaddress=0xTokenContractAddress&address=0x2E13705BC3591BB67ef7a4c27427dbDFE4F7597c&tag=latest&apikey=YourApiKeyToken`; async function loadETHBalance() { try { const res = await fetch(etherscanApi); const data = await res.json(); const balance = Number(data.result) / 1e18; document.getElementById("ethBalance").innerText = balance.toFixed(2) + " AU"; } catch (e) { document.getElementById("ethBalance").innerText = "⚠️ Unable to load"; } } loadBTC(); 
+    // loadETHBalance(); // Uncomment if you have API key + token address setInterval(loadBTC, 60000); function toggleSection(button) { const content = button.nextElementSibling; if (content.style.display === "block") { content.style.display = "none"; } else { content.style.display = "block"; } } </script> </body> </html>
+      
