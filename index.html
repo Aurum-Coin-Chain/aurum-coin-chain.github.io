@@ -12,6 +12,22 @@
   <link rel="icon" href="aurum_logo.png.PNG" type="image/png" />
   <title>AURUM – Secured by Bitcoin</title>
   <style>
+    .collapsible-section {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+.collapsible-section.open {
+  max-height: 2000px;
+  opacity: 1;
+}
+body {
+  font-family: 'Arial', sans-serif;
+  ...
+}
+
     * {
       margin: 0;
       padding: 0;
@@ -132,7 +148,24 @@
     <p class="live-data" id="ethBalance">Loading AU balance...</p>
   </section>
 
- <section id="tokenomics">
+<section id="tokenomics">
+  <h2>Tokenomics</h2>
+  <button 
+    onclick="toggleSection('tokenomicsContent', this)" 
+    data-label="Tokenomics"
+    style="margin: 10px 0; padding: 8px 16px; background-color: gold; border: none; border-radius: 5px; cursor: pointer;">
+    🔽 Tokenomics anzeigen
+  </button>
+
+  <div class="collapsible-section" id="tokenomicsContent" style="display: none;">
+    <p><strong>Token Name:</strong> AURUM (AU)</p>
+    <p><strong>Total Supply:</strong> 1,000,000 AU</p>
+    <p><strong>Backing:</strong> Fully backed by BTC reserves</p>
+    <p><strong>Deflationary Model:</strong> Buyback & Burn mechanism reduces total supply over time</p>
+    <p><strong>Smart Contract:</strong> Deployed on Ethereum – verifiable and immutable</p>
+  </div>
+</section>
+
   <h2>📊 AURUM Tokenomics</h2>
   <p><strong>1. Total Supply: 21 million AU</strong></p>
   <ul>
@@ -198,7 +231,28 @@ A new kind of token.</em></p>
 </section>
 
 
-  <section id="whitepaper">
+<section id="whitepaper">
+  <h2>Whitepaper</h2>
+  <button 
+    onclick="toggleSection('whitepaperContent', this)" 
+    data-label="Whitepaper"
+    style="margin: 10px 0; padding: 8px 16px; background-color: gold; border: none; border-radius: 5px; cursor: pointer;">
+    🔽 Whitepaper anzeigen
+  </button>
+
+  <div class="collapsible-section" id="whitepaperContent" style="display: none;">
+    <p><strong>Introduction:</strong> AURUM is more than just a token – it’s a deflationary asset directly backed by Bitcoin reserves. This ensures a real, auditable floor value for every AU token in circulation.</p>
+    <p><strong>Transparency:</strong> All BTC reserves are publicly visible and verifiable in real time.</p>
+    <p><strong>Mechanism:</strong> Through a smart contract, AURUM maintains backing and supply control, offering scarcity with substance.</p>
+    <p><strong>Goal:</strong> To offer a digital asset with no ceiling and a real floor.</p>
+    <p><strong>Vision:</strong> Redefine digital value with true backing, transparency, and long-term trust.</p>
+  </div>
+</section>
+
+
+
+<section id="whitepaper" style="display: none;">
+
   <h2>📄 AURUM Whitepaper</h2>
   <ol>
     <li><strong>PoV – Proof of Value Protocol</strong></li>
@@ -264,7 +318,28 @@ A new kind of token.</em></p>
 </section>
 
 
-  <section id="launchpad">
+ <section id="launchpad">
+  <h2>Ethereum Launchpad</h2>
+  
+  <button 
+    onclick="toggleSection('launchpadContent', this)" 
+    data-label="Ethereum Launchpad"
+    style="margin: 10px 0; padding: 8px 16px; background-color: gold; border: none; border-radius: 5px; cursor: pointer;">
+    🔽 Ethereum Launchpad anzeigen
+  </button>
+
+  <div class="collapsible-section" id="launchpadContent" style="display: none;">
+    <p><strong>Smart Contract:</strong> AURUM is launched on the Ethereum blockchain, fully compatible with ERC-20 wallets and decentralized exchanges.</p>
+    <p><strong>Security:</strong> The contract is immutable, and ownership is renounced. Liquidity is locked, ensuring long-term trust.</p>
+    <p><strong>Accessibility:</strong> Anyone can acquire AU tokens via DEXs like Uniswap after the launch.</p>
+    <p><strong>Transparency:</strong> Every transaction is traceable and viewable on the Ethereum network.</p>
+    <p><strong>Launch Goal:</strong> Fair, open, and permissionless access to digital value backed by Bitcoin.</p>
+  </div>
+</section>
+
+
+<section id="launchpad" style="display: none;">
+
   <h2>🟡 AURUM – Phase One: Ethereum Launchpad</h2>
   <p>AURUM begins where today’s crypto world lives: on Ethereum. This first phase serves as a launchpad – for the token, the community, the idea.</p>
   <p>In a public presale, the AU token is sold. The goal is not quick profit, but long-term structure: most of the proceeds are converted into real Bitcoin and stored in a public, immutable reserve.</p>
@@ -279,7 +354,28 @@ A new kind of token.</em></p>
 </section>
 
 
-  <section id="vision">
+<section id="vision">
+  <h2>Vision</h2>
+
+  <button 
+    onclick="toggleSection('visionContent', this)" 
+    data-label="Blockchain Vision"
+    style="margin: 10px 0; padding: 8px 16px; background-color: gold; border: none; border-radius: 5px; cursor: pointer;">
+    🔽 Blockchain Vision anzeigen
+  </button>
+
+  <div class="collapsible-section" id="visionContent" style="display: none;">
+    <p><strong>Mission:</strong> AURUM bridges Bitcoin's proven value with Ethereum's flexibility, offering a hybrid digital asset grounded in real-world value.</p>
+    <p><strong>Innovation:</strong> By anchoring AU tokens to Bitcoin reserves, we redefine stability and trust in decentralized finance (DeFi).</p>
+    <p><strong>Transparency:</strong> Live reserve data and open smart contracts ensure constant verifiability for users and investors.</p>
+    <p><strong>Vision:</strong> A decentralized ecosystem where tokens are not just speculative assets, but value-backed instruments for a sustainable crypto economy.</p>
+    <p><strong>Future:</strong> Integration with DeFi platforms, BTC-backed staking, and governance mechanisms to drive utility and community growth.</p>
+  </div>
+</section>
+
+
+<section id="vision" style="display: none;">
+
   <h2>🔷 AURUM – The Next Step: Blockchain & Vision</h2>
   <p>In Phase two, AURUM becomes independent.</p>
   <p>The dedicated blockchain launches – lightweight, accessible, and entirely built on real Bitcoin.</p>
@@ -332,7 +428,46 @@ A new kind of token.</em></p>
 </section>
 
 
-  <section id="faq">
+<button 
+  onclick="toggleSection('faq', this)" 
+  data-label="FAQ"
+  style="margin: 10px 0; padding: 8px 16px; background-color: gold; border: none; border-radius: 5px; cursor: pointer;">
+  🔽 FAQ anzeigen
+</button>
+
+<section id="faq" class="collapsible-section" style="margin-top: 20px;">
+  <h2>FAQ – Häufig gestellte Fragen</h2>
+  
+  <details style="margin-bottom: 10px;">
+    <summary><strong>Was ist AURUM?</strong></summary>
+    <p>AURUM ist ein durch Bitcoin gedeckter Token mit begrenztem Angebot und echtem Wert. Es bietet volle Transparenz durch Live-Reserven.</p>
+  </details>
+
+  <details style="margin-bottom: 10px;">
+    <summary><strong>Wie wird AURUM gesichert?</strong></summary>
+    <p>AURUM ist vollständig durch Bitcoin-Reserven abgesichert, die live auf der Website eingesehen werden können.</p>
+  </details>
+
+  <details style="margin-bottom: 10px;">
+    <summary><strong>Wo kann ich AURUM kaufen?</strong></summary>
+    <p>Derzeit ist AURUM über das Ethereum Launchpad erhältlich. Weitere Informationen findest du im Abschnitt „Launchpad“.</p>
+  </details>
+
+  <details style="margin-bottom: 10px;">
+    <summary><strong>Was unterscheidet AURUM von anderen Token?</strong></summary>
+    <p>AURUM hat ein festes Angebot, ist BTC-gedeckt, transparent, deflationär und manipulationssicher – ohne versteckte Mechanismen.</p>
+  </details>
+
+  <details style="margin-bottom: 10px;">
+    <summary><strong>Ist das Projekt dezentralisiert?</strong></summary>
+    <p>Ja. AURUM verfolgt einen dezentralen Ansatz mit transparentem Smart Contract und offen einsehbarer Wallet-Reserve.</p>
+  </details>
+
+  <details style="margin-bottom: 10px;">
+    <summary><strong>Wie viel
+
+<section id="faq" style="display: none;">
+
     <h2>❓ FAQ</h2>
     <ul>
       <li><strong>Is AURUM a financial product?</strong> No.</li>
@@ -395,3 +530,17 @@ A new kind of token.</em></p>
   </script>
 </body>
 </html>
+<script>
+  function toggleSection(id, button) {
+    const section = document.getElementById(id);
+    section.classList.toggle('open');
+
+    if (section.classList.contains('open')) {
+      button.textContent = `🔼 ${button.dataset.label} verbergen`;
+    } else {
+      button.textContent = `🔽 ${button.dataset.label} anzeigen`;
+    }
+  }
+</script>
+
+
