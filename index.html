@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <style>
+  section {
+    display: none;
+  }
+  section.active {
+    display: block;
+  }
+</style>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="AURUM is a deflationary, Bitcoin-backed token with real value and full transparency. Live BTC Reserve. No top – only a true floor." />
@@ -112,13 +121,14 @@
   <header>
     <img src="aurum_logo.png.PNG" alt="AURUM Logo" class="logo" />
     <h1>AURUM – Secured by Bitcoin</h1>
-    <nav>
-      <a href="#tokenomics">Tokenomics</a>
-      <a href="#whitepaper">Whitepaper</a>
-      <a href="#launchpad">Launchpad</a>
-      <a href="#vision">Vision</a>
-      <a href="#faq">FAQ</a>
-    </nav>
+   <nav>
+  <a href="#" data-target="tokenomics">Tokenomics</a>
+  <a href="#" data-target="whitepaper">Whitepaper</a>
+  <a href="#" data-target="launchpad">Launchpad</a>
+  <a href="#" data-target="vision">Vision</a>
+  <a href="#" data-target="faq">FAQ</a>
+</nav>
+
   </header>
 
   <section class="reserve-box">
@@ -393,5 +403,35 @@ A new kind of token.</em></p>
     // loadETHBalance();
     setInterval(loadBTC, 60000);
   </script>
+  
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const navLinks = document.querySelectorAll("nav a");
+    const sections = document.querySelectorAll("section");
+
+    function showSection(id) {
+      sections.forEach(section => {
+        if (section.id === id) {
+          section.classList.add("active");
+          section.scrollIntoView({ behavior: "smooth" });
+        } else {
+          section.classList.remove("active");
+        }
+      });
+    }
+
+    // Beim ersten Laden optional Tokenomics anzeigen
+    showSection("tokenomics");
+
+    navLinks.forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        const target = link.getAttribute("data-target");
+        showSection(target);
+      });
+    });
+  });
+</script>
+
 </body>
 </html>
