@@ -2,12 +2,16 @@
 <html lang="en">
 <head>
   <style>
-  section {
-    display: none;
-  }
-  section.active {
-    display: block;
-  }
+section {
+  display: none;
+  padding: 20px 0;
+}
+
+section.active,
+#disclaimer {
+  display: block;
+}
+
 </style>
 
   <meta charset="UTF-8" />
@@ -351,7 +355,7 @@ A new kind of token.</em></p>
     </ul>
   </section>
 
-  <section id="disclaimer">
+  <section id="disclaimer" class="active">
   <h2>📢 Legal Disclaimer</h2>
   <p><strong>AURUM is not a financial product, security, or investment vehicle.</strong></p>
   <p>This website and its content are for informational and entertainment purposes only. Nothing on this site constitutes financial advice, investment recommendations, or legal counsel of any kind.</p>
@@ -432,6 +436,47 @@ A new kind of token.</em></p>
     });
   });
 </script>
+    <script>
+    const btcAddress = 'bc1qzdtst5k56qkcxckgd7dn4s6s2y2v4ac09la4rt';
+    const btcApi = `https://blockstream.info/api/address/${btcAddress}`;
+    async function loadBTC() {
+      try {
+        const res = await fetch(btcApi);
+        const data = await res.json();
+        const sats = data.chain_stats.funded_txo_sum - data.chain_stats.spent_txo_sum;
+        const btc = sats / 100000000;
+        document.getElementById("btcReserve").innerText = `${btc.toFixed(4)} BTC`;
+      } catch (e) {
+        document.getElementById("btcReserve").innerText = "⚠️ Unable to load";
+      }
+    }
+
+    const etherscanApi = `https://api.etherscan.io/api?module=account&action=tokenbalance&contractaddress=0xTokenContractAddress&address=0x2E13705BC3591BB67ef7a4c27427dbDFE4F7597c&tag=latest&apikey=YourApiKeyToken`;
+    async function loadETHBalance() {
+      try {
+        const res = await fetch(etherscanApi);
+        const data = await res.json();
+        const balance = Number(data.result) / 1e18;
+        document.getElementById("ethBalance").innerText = balance.toFixed(2) + " AU";
+      } catch (e) {
+        document.getElementById("ethBalance").innerText = "⚠️ Unable to load";
+      }
+    }
+
+    loadBTC();
+    // Uncomment this if you have a real API key and token contract address:
+    // loadETHBalance();
+    setInterval(loadBTC, 60000);
+  </script>
+  section {
+  display: none;
+  padding: 20px 0;
+}
+section.active {
+  display: block;
+}
+
+
 
 </body>
 </html>
