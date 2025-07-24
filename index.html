@@ -1,28 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <style>
-section {
-  display: none;
-  padding: 20px 0;
-}
-
-section.active,
-#disclaimer {
-  display: block;
-}
-
-</style>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="AURUM is a deflationary, Bitcoin-backed token with real value and full transparency. Live BTC Reserve. No top – only a true floor." />
   <meta property="og:title" content="AURUM – Secured by Bitcoin" />
   <meta property="og:description" content="The future of digital value. Transparent. Immutable. Backed by real BTC." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="aurum_logo_transparent.png" />
+  <meta property="og:image" content="aurum_logo.png.PNG" />
   <meta name="theme-color" content="#000000" />
-  <link rel="icon" href="favicon-64-transparent.png" type="image/png" />
+  <link rel="icon" href="aurum_logo.png.PNG" type="image/png" />
   <title>AURUM – Secured by Bitcoin</title>
   <style>
     * {
@@ -123,16 +110,15 @@ section.active,
 </head>
 <body>
   <header>
-    <img src="aurum_logo_transparent.png" alt="AURUM Logo" />
+    <img src="aurum_logo.png.PNG" alt="AURUM Logo" class="logo" />
     <h1>AURUM – Secured by Bitcoin</h1>
-   <nav>
-  <a href="#" data-target="tokenomics">Tokenomics</a>
-  <a href="#" data-target="whitepaper">Whitepaper</a>
-  <a href="#" data-target="launchpad">Launchpad</a>
-  <a href="#" data-target="vision">Vision</a>
-  <a href="#" data-target="faq">FAQ</a>
-</nav>
-
+    <nav>
+      <a href="#tokenomics">Tokenomics</a>
+      <a href="#whitepaper">Whitepaper</a>
+      <a href="#launchpad">Launchpad</a>
+      <a href="#vision">Vision</a>
+      <a href="#faq">FAQ</a>
+    </nav>
   </header>
 
   <section class="reserve-box">
@@ -141,7 +127,7 @@ section.active,
   </section>
 
   <section class="satoshi-wallet">
-    <h3>Satoshi’s <img src="aurum_logo_transparent.png" alt="AURUM Coin" /></h3>
+    <h3>Satoshi’s <img src="aurum_logo.png.PNG" alt="AURUM Coin" /></h3>
     <p><code>0x2E13705BC3591BB67ef7a4c27427dbDFE4F7597c</code></p>
     <p class="live-data" id="ethBalance">Loading AU balance...</p>
   </section>
@@ -355,7 +341,7 @@ A new kind of token.</em></p>
     </ul>
   </section>
 
-  <section id="disclaimer" class="active">
+  <section id="disclaimer">
   <h2>📢 Legal Disclaimer</h2>
   <p><strong>AURUM is not a financial product, security, or investment vehicle.</strong></p>
   <p>This website and its content are for informational and entertainment purposes only. Nothing on this site constitutes financial advice, investment recommendations, or legal counsel of any kind.</p>
@@ -365,13 +351,8 @@ A new kind of token.</em></p>
   <p>Always do your own research (DYOR) and consult a licensed financial advisor before making any investment-related choices.</p>
 </section>
 
-<footer style="text-align: center; padding: 20px; background-color: #000; color: #fff;">
+<footer>
   &copy; 2025 AURUM. Powered by Bitcoin scarcity.
-  <br>
-  <a href="https://x.com/AurumBlockChain" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; text-decoration: none; color: #fff;">
-    <img src="x-logo.png" alt="X (Twitter)" style="width: 20px; height: 20px; filter: brightness(1000%);" />
-    <span>@AurumBlockChain</span>
-  </a>
 </footer>
 
 
@@ -407,76 +388,5 @@ A new kind of token.</em></p>
     // loadETHBalance();
     setInterval(loadBTC, 60000);
   </script>
-  
-  <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const navLinks = document.querySelectorAll("nav a");
-    const sections = document.querySelectorAll("section");
-
-    function showSection(id) {
-      sections.forEach(section => {
-        if (section.id === id) {
-          section.classList.add("active");
-          section.scrollIntoView({ behavior: "smooth" });
-        } else {
-          section.classList.remove("active");
-        }
-      });
-    }
-
-    // Beim ersten Laden optional Tokenomics anzeigen
-    showSection("tokenomics");
-
-    navLinks.forEach(link => {
-      link.addEventListener("click", e => {
-        e.preventDefault();
-        const target = link.getAttribute("data-target");
-        showSection(target);
-      });
-    });
-  });
-</script>
-    <script>
-    const btcAddress = 'bc1qzdtst5k56qkcxckgd7dn4s6s2y2v4ac09la4rt';
-    const btcApi = `https://blockstream.info/api/address/${btcAddress}`;
-    async function loadBTC() {
-      try {
-        const res = await fetch(btcApi);
-        const data = await res.json();
-        const sats = data.chain_stats.funded_txo_sum - data.chain_stats.spent_txo_sum;
-        const btc = sats / 100000000;
-        document.getElementById("btcReserve").innerText = `${btc.toFixed(4)} BTC`;
-      } catch (e) {
-        document.getElementById("btcReserve").innerText = "⚠️ Unable to load";
-      }
-    }
-
-    const etherscanApi = `https://api.etherscan.io/api?module=account&action=tokenbalance&contractaddress=0xTokenContractAddress&address=0x2E13705BC3591BB67ef7a4c27427dbDFE4F7597c&tag=latest&apikey=YourApiKeyToken`;
-    async function loadETHBalance() {
-      try {
-        const res = await fetch(etherscanApi);
-        const data = await res.json();
-        const balance = Number(data.result) / 1e18;
-        document.getElementById("ethBalance").innerText = balance.toFixed(2) + " AU";
-      } catch (e) {
-        document.getElementById("ethBalance").innerText = "⚠️ Unable to load";
-      }
-    }
-
-    loadBTC();
-    // Uncomment this if you have a real API key and token contract address:
-    // loadETHBalance();
-    setInterval(loadBTC, 60000);
-  </script>
-  section {
-  display: none;
-  padding: 20px 0;
-}
-section.active {
-  display: block;
-}
-
-
-
 </body>
 </html>
