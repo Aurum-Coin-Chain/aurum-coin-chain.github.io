@@ -15,6 +15,7 @@
       background-color: #111;
       color: #fff;
       line-height: 1.6;
+      padding-bottom: 120px; /* Platz für festen Footer */
     }
     header {
       text-align: center;
@@ -57,10 +58,15 @@
       font-size: 0.85rem;
     }
     footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
       text-align: center;
       padding: 20px;
       background-color: #000;
       color: #fff;
+      z-index: 1000;
     }
     a {
       color: #fff;
@@ -81,7 +87,7 @@
 
   <section>
     <h2>AUR Live Mining Supply</h2>
-    <p>Live AUR Tokens:</p>
+    <p>Live AUR Tokens (on Ethereum):</p>
     <div id="eth-balance">Loading AUR token balance...</div>
   </section>
 
@@ -93,7 +99,7 @@
   <section id="tokenomics">
     <h2><img src="favicon-64-transparent.png" class="minief7a4c27427dbDFE4F7597c-icon" />Tokenomics</h2>
     <div class="toggle-content">
-      <p><strong>1. Total Supply: 21 million AU</strong></p>
+       <p><strong>1. Total Supply: 21 million AU</strong></p>
   <ul>
     <li>1 million AU permanently locked for Satoshi Nakamoto (comparable to lost BTC)</li>
     <li>20 million AU actively circulating or allocated for distribution</li>
@@ -154,6 +160,73 @@
 
  <p style="color: gold;"><em>Born as a meme. Backed by value. Secured by Bitcoin.  
 A new kind of token.</em></p>
+    </div>
+  </section>
+
+  <section id="whitepaper">
+    <h2><img src="favicon-64-transparent.png" class="minief7a4c27427dbDFE4F7597c-icon" />Whitepaper</h2>
+    <div class="toggle-content">
+      <p><ol>
+    <li><strong>PoV – Proof of Value Protocol</strong></li>
+    <li><strong> Introduction</strong><br>
+      AURUM (AU) starts as a meme coin but follows a serious, long-term vision: a deflationary token system backed by real Bitcoin. The foundation is formed by publicly visible BTC reserves that remain permanently in the system. AURUM combines the charm of a community token with true value coverage.
+    </li>
+    <li><strong> No Central Company – 100% Decentralization</strong><br>
+      There is no central company or authority behind AURUM. The project is fully decentralized. Merchandise is voluntarily offered by supporters and has no legal or financial connection to the token. All BTC revenue (after costs) is voluntarily added to the reserve. The team receives no free AU – all tokens are purchased under the same conditions as the community.
+    </li>
+    <li><strong> AURUMBTC (aBTC)</strong><br>
+      Unlike centralized solutions like WBTC, which can be frozen or censored, AURUM's own wrapped Bitcoin (aBTC) will only exist on the AURUM blockchain: censorship-resistant, fully decentralized, secured by BTC in a 3/5 multisig wallet.<br>
+      The protocol defines the swap mechanism: Anyone exchanging AU for aBTC receives only 79% in BTC. The remaining 21% permanently stays in the reserve. The exchanged AU is fully burned.<br>
+      This process is irreversible – it reduces AU supply and aBTC pool simultaneously, adding a deflationary effect.
+    </li>
+    <li><strong> Bitcoin Reserve & Irreversibility</strong><br>
+      Once BTC enters the AURUM reserve, it permanently exits market circulation. No withdrawals, no reclaiming. The reserve remains in the system forever – creating a reliable, transparent, and immutable value base for AU.
+    </li>
+    <li><strong> Redemption with Deflationary Logic</strong><br>
+      Redemption is allowed – but fixed: only 79% of BTC value is returned, 21% remains in the reserve. All returned AU is burned, reducing supply and strengthening system integrity.
+    </li>
+    <li><strong> Halving & Migration</strong><br>
+      1.3 million AU (Halving-Coins) are sold on Ethereum in exchange for ETH or BTC. Proceeds are converted into WBTC and added to liquidity pools. These coins represent future "mining" rewards.<br>
+      On the AURUM blockchain, coins will only be distributed through staking to node operators – daily, with halving cycles like Bitcoin.<br>
+      Node operators secure the network and receive:
+      <ul>
+        <li>Halving-coins as reward</li>
+        <li>Transaction fees</li>
+      </ul>
+      This provides long-term decentralized network security – based on staking, not mining.
+    </li>
+    <li><strong> Conclusion</strong><br>
+      AURUM is more than a meme – it’s a deflationary BTC value system.<br>
+      A place where Bitcoin stays – transparent, decentralized, final.
+    </li>
+    <li><strong> Why Bitcoin Must Stay in AURUM</strong><br>
+      BTC is becoming scarcer – institutions accumulate while retail access becomes harder. AURUM reacts by collecting real BTC and locking it permanently in the system.<br>
+      These BTC are non-sellable, non-withdrawable, and secured in a multisig wallet.<br>
+      Anyone holding AU indirectly participates in this protected reserve.
+    </li>
+    <li><strong> Proof of Value (PoV)</strong><br>
+      AURUM follows PoV – a new principle: value coverage instead of trust.<br>
+      <ul>
+        <li>Each AU is backed by real BTC</li>
+        <li>Halving-Coins only exist via WBTC swaps</li>
+        <li>On-chain, Halving-Coins are distributed to nodes (no energy waste)</li>
+      </ul>
+      PoV maintains balance:
+      <ul>
+        <li>21% of AU-to-BTC swaps stay in reserve</li>
+        <li>Burning of AU reduces supply</li>
+        <li>Voluntary BTC donations grow reserve</li>
+      </ul>
+      AU only exists when value has been contributed – by BTC or network security.
+    </li>
+    <li><strong> Legal Disclaimer</strong><br>
+      AURUM is not a financial product. It is a community-driven utility token, backed by a public BTC reserve.<br>
+      Not a security, not an investment – no promises of profit or price.<br>
+      BTC in the reserve only serves as transparent value coverage – not a guarantee or redemption claim.<br>
+      AURUM is decentralized, open source, and not owned or controlled by any entity.<br>
+      Started as a meme coin – but built for real value.
+    </li>
+  </ol></p>
     </div>
   </section>
 
@@ -314,6 +387,7 @@ A new kind of token.</em></p>
   <p>Cryptocurrency markets are volatile, and digital assets can lose their value entirely. You are solely responsible for your decisions and outcomes.</p>
   <p>Always do your own research (DYOR) and consult a licensed financial advisor before making any investment-related choices.</p>
   </div>
+
 
   <footer>
     &copy; 2025 AURUM. Powered by Bitcoin scarcity.<br>
