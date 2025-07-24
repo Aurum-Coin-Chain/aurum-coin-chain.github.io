@@ -117,27 +117,37 @@
     }
 
     .x-link {
-      text-align: center;
-      margin-top: 30px;
-    }
+  text-align: center;
+  margin-top: 10px;
+}
 
-    .x-link img {
-      height: 24px;
-      vertical-align: middle;
-      margin-right: 5px;
-    }
+.x-link a {
+  color: #FFD700; /* Gold für AURUM */
+  text-decoration: none;
+  font-weight: bold;
+}
 
-    footer {
-      background: #000;
-      color: #888;
-      text-align: center;
-      padding: 10px;
-      font-size: 0.8rem;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      z-index: 1000;
-    }
+.x-link a:hover {
+  text-decoration: underline;
+}
+
+.x-link img {
+  height: 18px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+footer {
+  background: #000;
+  color: #888;
+  text-align: center;
+  padding: 20px 10px 10px;
+  font-size: 0.8rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
+}
   </style>
 </head>
 <body>
@@ -382,8 +392,14 @@ A new kind of token.</em></p>
   </main>
 
   <footer>
-    &copy; 2025 AURUM. Powered by Bitcoin scarcity.
-  </footer>
+  <div class="x-link">
+    <a href="https://x.com/AurumBlockChain" target="_blank">
+      <img src="AurumBlockChain x-logo.png" alt="X Logo">
+      AurumBlockChain
+    </a>
+  </div>
+  &copy; 2025 AURUM. Powered by Bitcoin scarcity.
+</footer>
 
   <script>
     // Section Toggle
